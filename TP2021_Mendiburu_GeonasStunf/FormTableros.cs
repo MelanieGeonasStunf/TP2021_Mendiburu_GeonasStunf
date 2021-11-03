@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace TP2021_Mendiburu_GeonasStunf
 {
-    public partial class Form1 : Form
+    public partial class FormTableros : Form
     {
-        public Form1()
+        public FormTableros()
         {
             InitializeComponent();
         }

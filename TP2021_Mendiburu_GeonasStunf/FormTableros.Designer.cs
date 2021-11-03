@@ -1,17 +1,27 @@
 ﻿
 namespace TP2021_Mendiburu_GeonasStunf
 {
-    partial class Form1
+    partial class FormTableros
     {
         /// <summary>
         /// Required designer variable.
         /// </summary>
         private System.ComponentModel.IContainer components = null;
 
+        cJuego partida;
+        
         /// <summary>
         /// Clean up any resources being used.
         /// </summary>
         /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        /// 
+        
+        /*public FormTableros(cJuego juego)
+        {
+            partida = juego;           
+            InitializeComponent();
+        }*/
+
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
@@ -21,6 +31,7 @@ namespace TP2021_Mendiburu_GeonasStunf
             base.Dispose(disposing);
         }
 
+
         #region Windows Form Designer generated code
 
         /// <summary>
@@ -29,13 +40,20 @@ namespace TP2021_Mendiburu_GeonasStunf
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            this.SuspendLayout();
+            // 
+            // FormTableros
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Text = "Form1";
+            this.BackColor = System.Drawing.Color.Maroon;
+            this.ClientSize = new System.Drawing.Size(807, 450);
+            this.Name = "FormTableros";
+            this.Text = "FormTableros";
+            this.ResumeLayout(false);
+
         }
 
         #endregion
     }
 }
-
