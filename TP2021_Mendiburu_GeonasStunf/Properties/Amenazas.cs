@@ -460,6 +460,7 @@ namespace TP2021_Mendiburu_GeonasStunf
                 }
             }
             matriz_Fatales.tablero[pieza.pos.fila, pieza.pos.columna] = (int)pieza.tipoPieza;
+            
         }
         public void AmenazasFatalesTorre(cTablero matriz_Fatales, cTablero pos_piezas, Pieza pieza)
         {
@@ -470,11 +471,13 @@ namespace TP2021_Mendiburu_GeonasStunf
                     matriz_Fatales.tablero[i, pieza.pos.columna] = (int)pieza.tipoPieza;
 
                 }
-                else
+                if(pos_piezas.tablero[i, pieza.pos.columna]!=0&& pos_piezas.tablero[i, pieza.pos.columna]!=(int)pieza.tipoPieza)
                 {
                     matriz_Fatales.tablero[i, pieza.pos.columna] = (int)pieza.tipoPieza;
                     break;
                 }
+                else
+                    matriz_Fatales.tablero[i, pieza.pos.columna] = (int)pieza.tipoPieza;
             }         
 
             for(int i=pieza.pos.fila; i<8;i++)
@@ -483,11 +486,13 @@ namespace TP2021_Mendiburu_GeonasStunf
                 {
                     matriz_Fatales.tablero[i, pieza.pos.columna] = (int)pieza.tipoPieza;
                 }
-                else
+                if (pos_piezas.tablero[i, pieza.pos.columna] != 0 && pos_piezas.tablero[i, pieza.pos.columna] != (int)pieza.tipoPieza)
                 {
                     matriz_Fatales.tablero[i, pieza.pos.columna] = (int)pieza.tipoPieza;
                     break;
                 }
+                else
+                    matriz_Fatales.tablero[i, pieza.pos.columna] = (int)pieza.tipoPieza;
             }
 
 
@@ -498,11 +503,14 @@ namespace TP2021_Mendiburu_GeonasStunf
                     matriz_Fatales.tablero[pieza.pos.fila, j] = (int)pieza.tipoPieza;
 
                 }
-                else
+                if (pos_piezas.tablero[pieza.pos.fila, j] != 0 && pos_piezas.tablero[pieza.pos.fila, j] != (int)pieza.tipoPieza)
                 {
                     matriz_Fatales.tablero[pieza.pos.fila, j] = (int)pieza.tipoPieza;
                     break;
                 }
+                else
+                    matriz_Fatales.tablero[pieza.pos.fila, j] = (int)pieza.tipoPieza;
+
             }
 
             for (int j = pieza.pos.columna; j < 8; j++)
@@ -512,91 +520,109 @@ namespace TP2021_Mendiburu_GeonasStunf
                     matriz_Fatales.tablero[pieza.pos.fila, j] = (int)pieza.tipoPieza;
 
                 }
-                else
+                if (pos_piezas.tablero[pieza.pos.fila, j] != 0 && pos_piezas.tablero[pieza.pos.fila, j] != (int)pieza.tipoPieza)
                 {
                     matriz_Fatales.tablero[pieza.pos.fila, j] = (int)pieza.tipoPieza;
                     break;
                 }
-            }           
+                else
+                    matriz_Fatales.tablero[pieza.pos.fila, j] = (int)pieza.tipoPieza;
+            }
+            
         }
         public void AmenazasFatalesAlfil(cTablero matriz_Fatales, cTablero pos_piezas, Pieza pieza)
         {
             int i = pieza.pos.fila;
             int j = pieza.pos.columna;
 
+
+            while ((i >= 0 && j >= 0) && (i <= 7 && j <= 7))
+            {
+                if (pos_piezas.tablero[i, j] == 0)
+                {
+                    matriz_Fatales.tablero[i, j] = (int)pieza.tipoPieza;
+
+                }
+                if (pos_piezas.tablero[i, j] != 0 && pos_piezas.tablero[i, j] != (int)pieza.tipoPieza)
+                {
+                    matriz_Fatales.tablero[i, j] = (int)pieza.tipoPieza;
+                    break;
+                }
+                if (pos_piezas.tablero[i, j] == (int)pieza.tipoPieza)
+                    matriz_Fatales.tablero[i, j] = (int)pieza.tipoPieza;
+                i++;
+                j++;
+
+            }
+            i = pieza.pos.fila;
+            j = pieza.pos.columna;
+            while ((i >= 0 && j >= 0) && (i <= 7 && j <= 7))
+            {
+                if (pos_piezas.tablero[i, j] == 0)
+                {
+                    matriz_Fatales.tablero[i, j] = (int)pieza.tipoPieza;
+
+                }
+                if (pos_piezas.tablero[i, j] != 0 && pos_piezas.tablero[i, j] != (int)pieza.tipoPieza)
+                {
+                    matriz_Fatales.tablero[i, j] = (int)pieza.tipoPieza;
+                    break;
+                }
+                if (pos_piezas.tablero[i, j] == (int)pieza.tipoPieza)
+                    matriz_Fatales.tablero[i, j] = (int)pieza.tipoPieza;
+
+                i--;
+                j--;
+            }
+            i = pieza.pos.fila;
+            j = pieza.pos.columna;
+            while ((i >= 0 && j >= 0) && (i <= 7 && j <= 7))
+            {
+                if (pos_piezas.tablero[i, j] == 0)
+                {
+                    matriz_Fatales.tablero[i, j] = (int)pieza.tipoPieza;
+
+
+                }
+                if (pos_piezas.tablero[i, j] != 0 && pos_piezas.tablero[i, j] != (int)pieza.tipoPieza)
+                {
+                    matriz_Fatales.tablero[i, j] = (int)pieza.tipoPieza;
+                    break;
+                }
+                if (pos_piezas.tablero[i, j] == (int)pieza.tipoPieza)
+                    matriz_Fatales.tablero[i, j] = (int)pieza.tipoPieza;
+                i++;
+                j--;
+            }
+            i = pieza.pos.fila;
+            j = pieza.pos.columna;
+            while ((i >= 0 && j >= 0) && (i <= 7 && j <= 7))
+            {
+
+                if (pos_piezas.tablero[i, j] == 0)
+                {
+                    matriz_Fatales.tablero[i, j] = (int)pieza.tipoPieza;
+
+
+                }
+                if (pos_piezas.tablero[i, j] != 0 && pos_piezas.tablero[i, j] != (int)pieza.tipoPieza)
+                {
+                    matriz_Fatales.tablero[i, j] = (int)pieza.tipoPieza;
+                    break;
+                }
+                if (pos_piezas.tablero[i, j] == (int)pieza.tipoPieza)
+                    matriz_Fatales.tablero[i, j] = (int)pieza.tipoPieza;
+                i--;
+                j++;
+            }
            
-            while ((i >= 0 && j >= 0) && (i <= 7 && j <= 7))
-            {
-                if (pos_piezas.tablero[i, j] == 0 )
-                {
-                    matriz_Fatales.tablero[i, j] = (int)pieza.tipoPieza;
-
-                    i++;
-                    j++;
-                }
-                if(pos_piezas.tablero[i, j] != 0)
-                {
-                    matriz_Fatales.tablero[i, j] = (int)pieza.tipoPieza;
-                    break;
-                }
-            }
-            i = pieza.pos.fila;
-            j = pieza.pos.columna;
-            while ((i >= 0 && j >= 0) && (i <= 7 && j <= 7))
-            {
-                if(pos_piezas.tablero[i, j] == 0 )
-                {
-                    matriz_Fatales.tablero[i, j] = (int)pieza.tipoPieza;
-
-                    i--;
-                    j--;
-                }
-                if (pos_piezas.tablero[i, j] != 0)
-                {
-                    matriz_Fatales.tablero[i, j] = (int)pieza.tipoPieza;
-                    break;
-                }
-            }
-            i = pieza.pos.fila;
-            j = pieza.pos.columna;
-            while ((i >= 0 && j >= 0) && (i <= 7 && j <= 7))
-            {
-                if (pos_piezas.tablero[i, j] == 0)
-                {
-                    matriz_Fatales.tablero[i, j] = (int)pieza.tipoPieza;
-
-                    i++;
-                    j--;
-                }
-                if (pos_piezas.tablero[i, j] != 0)
-                {
-                    matriz_Fatales.tablero[i, j] = (int)pieza.tipoPieza;
-                    break;
-                }
-            }
-            i = pieza.pos.fila;
-            j = pieza.pos.columna;
-            while ((i >= 0 && j >= 0) && (i <= 7 && j <= 7))
-            {
-
-                if (pos_piezas.tablero[i, j] == 0)
-                {
-                    matriz_Fatales.tablero[i, j] = (int)pieza.tipoPieza;
-
-                    i--;
-                    j++;
-                }
-                if (pos_piezas.tablero[i, j] != 0)
-                {
-                    matriz_Fatales.tablero[i, j] = (int)pieza.tipoPieza;
-                    break;
-                }
-            }
         }
         public void AmenazasFatalesReina(cTablero matriz_Fatales, cTablero pos_piezas, Pieza pieza)
         {
             AmenazasFatalesAlfil(matriz_Fatales, pos_piezas, pieza);
             AmenazasFatalesTorre(matriz_Fatales, pos_piezas, pieza);
+            pos_piezas.ImprimirTablero();
+            matriz_Fatales.ImprimirTablero();
         }
         public void AmenazasFatalesRey(cTablero matriz_Fatales, cTablero pos_piezas, Pieza pieza)
         {
