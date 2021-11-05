@@ -620,9 +620,7 @@ namespace TP2021_Mendiburu_GeonasStunf
         public void AmenazasFatalesReina(cTablero matriz_Fatales, cTablero pos_piezas, Pieza pieza)
         {
             AmenazasFatalesAlfil(matriz_Fatales, pos_piezas, pieza);
-            AmenazasFatalesTorre(matriz_Fatales, pos_piezas, pieza);
-            pos_piezas.ImprimirTablero();
-            matriz_Fatales.ImprimirTablero();
+            AmenazasFatalesTorre(matriz_Fatales, pos_piezas, pieza);     
         }
         public void AmenazasFatalesRey(cTablero matriz_Fatales, cTablero pos_piezas, Pieza pieza)
         {

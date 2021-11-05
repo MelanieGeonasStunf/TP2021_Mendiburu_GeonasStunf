@@ -100,9 +100,11 @@ namespace TP2021_Mendiburu_GeonasStunf
                     pos_piezas.ImprimirTablero();
                     casillas_amenazadas.ImprimirTablero();
 
-                    Console.WriteLine("\nAtques fatales:" + cant_tab_generados);
+                    /*Console.WriteLine("\nAtques fatales:" + cant_tab_generados);
                     casillas_amenazadas.ataquesLevesyFatales(matrizFatales, pos_piezas, arrayPiezas);
-                    matrizFatales.ImprimirTablero();
+                    matrizFatales.ImprimirTablero();*/
+                    break;
+
                 }
                 else
                 {
@@ -137,17 +139,18 @@ namespace TP2021_Mendiburu_GeonasStunf
 
                     //me fijo si el tablero esta completo
                     casillas_amenazadas.ChequeoCasillerosLibres();
-                    if (casillas_amenazadas.casillas_no_amenazadas == 0&&ChequearTablero()==true)
+                    if (casillas_amenazadas.casillas_no_amenazadas == 0 && ChequearTablero() == true)
                     {
                         copiarPosiciones();
                         cant_tab_generados++;
                         Console.WriteLine("\nTengo tablero n°:" + cant_tab_generados);
                         pos_piezas.ImprimirTablero();
                         casillas_amenazadas.ImprimirTablero();
-                        //ACA TAMBIEN TENDRIAMOS QUE ROTAR EL TABLERO!!
-                        Console.WriteLine("\nAtques fatales:" + cant_tab_generados);
+
+                        /*Console.WriteLine("\nAtques fatales:" + cant_tab_generados);
                         casillas_amenazadas.ataquesLevesyFatales(matrizFatales, pos_piezas, arrayPiezas);
-                        matrizFatales.ImprimirTablero();
+                        matrizFatales.ImprimirTablero();*/
+                        break;
 
                     }
                     else
@@ -181,15 +184,14 @@ namespace TP2021_Mendiburu_GeonasStunf
                             if (casillas_amenazadas.casillas_no_amenazadas == 0 && ChequearTablero() == true)
                             {
                                 copiarPosiciones();
-
                                 cant_tab_generados++;
                                 Console.WriteLine("\nTengo tablero n°:" + cant_tab_generados);
                                 pos_piezas.ImprimirTablero();
                                 casillas_amenazadas.ImprimirTablero();
 
-                                Console.WriteLine("\nAtques fatales:" + cant_tab_generados);
+                                /*Console.WriteLine("\nAtques fatales:" + cant_tab_generados);
                                 casillas_amenazadas.ataquesLevesyFatales(matrizFatales, pos_piezas, arrayPiezas);
-                                matrizFatales.ImprimirTablero();
+                                matrizFatales.ImprimirTablero();*/
                                 break;
                             }
                             else
@@ -406,7 +408,7 @@ namespace TP2021_Mendiburu_GeonasStunf
             int contador = 0;
             for (int i = 0; i < pos_piezas.tablero.GetLength(0); i++)
             {
-                for (int j = 0; j < pos_piezas.tablero.GetLength(1); j++)
+                for (int j = 0; j < cant_tab_generados; j++)
                 {
                     if (cant_tab_generados == 0)
                         return true;
