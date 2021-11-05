@@ -106,7 +106,10 @@ namespace TP2021_Mendiburu_GeonasStunf
         private void BttnSiguiente_Click(object sender, EventArgs e)
         {
             if (tab < partida.cant_tableros_a_generar)
+            {
                 ImprimirTableros();
+                this.Show();
+            }
             else
             {
                 //this.Close();
