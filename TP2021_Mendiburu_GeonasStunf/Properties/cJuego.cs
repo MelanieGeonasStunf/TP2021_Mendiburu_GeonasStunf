@@ -15,7 +15,7 @@ namespace TP2021_Mendiburu_GeonasStunf
         public cTablero pos_piezas;
         public Amenazas cant_amenazasxCasillas;
         public cTablero matrizFatales;
-        public cPosicion[,] Tableros;
+        public Pieza[,] Tableros;
         //int[,] cuartoTablero=new int[4,4];
 
         public Pieza[] arrayPiezas;
@@ -234,12 +234,12 @@ namespace TP2021_Mendiburu_GeonasStunf
             cant_amenazasxCasillas = new Amenazas();
             arrayPiezas = new Pieza[8];//yo recibiria una por parametro
             matrizFatales = new cTablero();
-            Tableros = new cPosicion[cant_tableros_a_generar, 8];
+            Tableros = new Pieza[cant_tableros_a_generar, 8];
             for (int i = 0; i < cant_tableros_a_generar; i++)
             {
                 for (int j = 0; j < 8; j++)
                 {
-                    Tableros[i, j] = new cPosicion();
+                    Tableros[i, j] = new Pieza(0);
                 }
             }
         }
@@ -437,7 +437,7 @@ namespace TP2021_Mendiburu_GeonasStunf
                 for (int j = 0; j < cant_tab_generados; j++)
                 {
                     
-                    if (arrayPiezas[i].pos.fila != (int)Tableros[j, i].fila || arrayPiezas[i].pos.columna != (int)Tableros[j, i].columna)//hago variar la fila (osea el tablero) 
+                    if (arrayPiezas[i].pos.fila != (int)Tableros[j, i].pos.fila || arrayPiezas[i].pos.columna != (int)Tableros[j, i].pos.columna)//hago variar la fila (osea el tablero) 
                     {
                         contador[j]++;
                        
@@ -463,8 +463,9 @@ namespace TP2021_Mendiburu_GeonasStunf
                 if (cant_tab_generados < 10)
                 {
 
-                    Tableros[cant_tab_generados, i].fila = (int)arrayPiezas[i].pos.fila;
-                    Tableros[cant_tab_generados, i].columna = (int)arrayPiezas[i].pos.columna;
+                    Tableros[cant_tab_generados, i].pos.fila = (int)arrayPiezas[i].pos.fila;
+                    Tableros[cant_tab_generados, i].pos.columna = (int)arrayPiezas[i].pos.columna;
+                    Tableros[cant_tab_generados, i].tipoPieza = arrayPiezas[i].tipoPieza;
                 }
 
             }

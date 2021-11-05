@@ -18,6 +18,7 @@ namespace TP2021_Mendiburu_GeonasStunf
         const int gridSize = 8;
         Color clr1 = Color.Beige;
         Color clr2 = Color.RosyBrown;
+        int tab = 0;
         //private void Form_Load(object sender, EventArgs e)
         //{
         //    const int tileSize = 40;
@@ -135,6 +136,7 @@ namespace TP2021_Mendiburu_GeonasStunf
             this.BttnSiguiente.TabIndex = 2;
             this.BttnSiguiente.Text = "Siguiente";
             this.BttnSiguiente.UseVisualStyleBackColor = true;
+            this.BttnSiguiente.Click += new System.EventHandler(this.BttnSiguiente_Click);
             // 
             // FormTableros
             // 
@@ -149,9 +151,8 @@ namespace TP2021_Mendiburu_GeonasStunf
             this.Text = "FormTableros";
             this.ResumeLayout(false);
             this.PerformLayout();
-            //Tablero
-            Tableros();
-
+            //-------------------------
+            ImprimirTableros();
         }
 
         #endregion
