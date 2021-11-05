@@ -41,7 +41,7 @@ namespace TP2021_Mendiburu_GeonasStunf
                 partida.arrayPiezas = CrearPiezas();
                 partida.cant_tableros_a_generar = cant;
                 partida.GenerarTableros();
-                FormTableros formTab = new FormTableros(partida);
+                FormTableros formTab = new FormTableros(partida,this);
                 formTab.Show();
                 this.Hide();
             }

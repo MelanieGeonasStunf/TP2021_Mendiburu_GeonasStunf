@@ -14,6 +14,7 @@ namespace TP2021_Mendiburu_GeonasStunf
 
         cJuego partida;
         private Panel[,] _chessBoardPanels;
+        Panel[,] Fatales;
         const int tileSize = 45;
         const int gridSize = 8;
         Color clr1 = Color.Beige;
@@ -104,6 +105,8 @@ namespace TP2021_Mendiburu_GeonasStunf
             // 
             // rdbttnAmenazasfatales
             // 
+            this.rdbttnAmenazasfatales.AllowDrop = true;
+            this.rdbttnAmenazasfatales.AutoEllipsis = true;
             this.rdbttnAmenazasfatales.AutoSize = true;
             this.rdbttnAmenazasfatales.BackColor = System.Drawing.Color.Maroon;
             this.rdbttnAmenazasfatales.Font = new System.Drawing.Font("Mongolian Baiti", 14.25F);
@@ -112,7 +115,6 @@ namespace TP2021_Mendiburu_GeonasStunf
             this.rdbttnAmenazasfatales.Name = "rdbttnAmenazasfatales";
             this.rdbttnAmenazasfatales.Size = new System.Drawing.Size(162, 24);
             this.rdbttnAmenazasfatales.TabIndex = 0;
-            this.rdbttnAmenazasfatales.TabStop = true;
             this.rdbttnAmenazasfatales.Text = "Amenazas Fatales";
             this.rdbttnAmenazasfatales.UseVisualStyleBackColor = false;
             this.rdbttnAmenazasfatales.CheckedChanged += new System.EventHandler(this.radioButton1_CheckedChanged);
@@ -126,6 +128,7 @@ namespace TP2021_Mendiburu_GeonasStunf
             this.button1.TabIndex = 1;
             this.button1.Text = "Anterior";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // BttnSiguiente
             // 
@@ -151,14 +154,12 @@ namespace TP2021_Mendiburu_GeonasStunf
             this.Text = "FormTableros";
             this.ResumeLayout(false);
             this.PerformLayout();
-            //-------------------------
-            ImprimirTableros();
+
         }
 
         #endregion
-
-        private RadioButton rdbttnAmenazasfatales;
         private Button button1;
         private Button BttnSiguiente;
+        private RadioButton rdbttnAmenazasfatales;
     }
 }
