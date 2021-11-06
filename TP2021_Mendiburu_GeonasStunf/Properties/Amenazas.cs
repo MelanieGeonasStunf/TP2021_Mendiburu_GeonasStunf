@@ -21,7 +21,7 @@ namespace TP2021_Mendiburu_GeonasStunf
             max_amenazas = (int)tablero[0, 0];
 
         }
-        public void AmenazasMovimientoCaballos(int[,] Amz_x_Cas, int[,] pos_piezas, Pieza pieza, bool sumar) //necesito poner el numero por eso{ 
+        public void AmenazasMovimientoCaballos(int[,] Amz_x_Cas, int[,] pos_piezas, Pieza pieza) //necesito poner el numero por eso{ 
         {
             for (int i = 0; i < 8; i++)
             {
@@ -31,44 +31,24 @@ namespace TP2021_Mendiburu_GeonasStunf
                         break;
                     if ((i == (pieza.pos.fila + 2) && pieza.pos.columna + 1 == j) || (i == (pieza.pos.fila - 2) && (pieza.pos.columna + 1) == j))
                     {
-                        if (sumar)
-                        {
-                            tablero[i, j] = (int)pieza.tipoPieza;
-                            Amz_x_Cas[i, j]++;
-                        }
-                        else
-                            Amz_x_Cas[i, j]--;
+                        tablero[i, j] = (int)pieza.tipoPieza;
+                        Amz_x_Cas[i, j]++;
                     }
                     if ((pieza.pos.fila + 2 == i && j == pieza.pos.columna - 1) || (pieza.pos.fila - 2 == i && j == pieza.pos.columna - 1))
                     {
 
-                        if (sumar)
-                        {
-                            tablero[i, j] = (int)pieza.tipoPieza;
-                            Amz_x_Cas[i, j]++;
-                        }
-                        else
-                            Amz_x_Cas[i, j]--;
+                        tablero[i, j] = (int)pieza.tipoPieza;
+                        Amz_x_Cas[i, j]++;
                     }
                     if ((pieza.pos.fila + 1 == i && j == pieza.pos.columna + 2) || (pieza.pos.fila - 1 == i && j == pieza.pos.columna + 2))
                     {
-                        if (sumar)
-                        {
-                            tablero[i, j] = (int)pieza.tipoPieza;
-                            Amz_x_Cas[i, j]++;
-                        }
-                        else
-                            Amz_x_Cas[i, pieza.pos.columna]--;
+                        tablero[i, j] = (int)pieza.tipoPieza;
+                        Amz_x_Cas[i, j]++;
                     }
                     if ((pieza.pos.fila + 1 == i && j == pieza.pos.columna - 2) || (pieza.pos.fila - 1 == i && j == pieza.pos.columna - 2))
                     {
-                        if (sumar)
-                        {
-                            tablero[i, j] = (int)pieza.tipoPieza;
-                            Amz_x_Cas[i, j]++;
-                        }
-                        else
-                            Amz_x_Cas[i, j]--;
+                        tablero[i, j] = (int)pieza.tipoPieza;
+                        Amz_x_Cas[i, j]++;
                     }
 
                 }
@@ -76,7 +56,7 @@ namespace TP2021_Mendiburu_GeonasStunf
             tablero[pieza.pos.fila, pieza.pos.columna] = (int)pieza.tipoPieza;
             Amz_x_Cas[pieza.pos.fila, pieza.pos.columna] = Amz_x_Cas[pieza.pos.fila, pieza.pos.columna] + 1;
         }
-        public void AmenazasMovimientoTorre(int[,] Amz_x_Cas, int[,] pos_piezas, Pieza pieza, bool sumar)
+        public void AmenazasMovimientoTorre(int[,] Amz_x_Cas, int[,] pos_piezas, Pieza pieza)
         {
             for (int i = 0; i < 8; i++)
             {
@@ -84,15 +64,8 @@ namespace TP2021_Mendiburu_GeonasStunf
                 {
                     for (int j = 0; j < 8; j++)
                     {
-                        if (sumar)
-                        {
-                            tablero[i, j] = (int)pieza.tipoPieza;//completo matriz con amenazas con nro correspondiente
-                            Amz_x_Cas[i, j] = Amz_x_Cas[i, j] + 1;//completo matriz con cant ataques sumando 1
-                        }
-                        else
-                        {
-                            Amz_x_Cas[i, j] = Amz_x_Cas[j, i] - 1;
-                        }
+                        tablero[i, j] = (int)pieza.tipoPieza;//completo matriz con amenazas con nro correspondiente
+                        Amz_x_Cas[i, j] = Amz_x_Cas[i, j] + 1;//completo matriz con cant ataques sumando 1
                     }
 
                 }
@@ -103,15 +76,8 @@ namespace TP2021_Mendiburu_GeonasStunf
                 {
                     for (int j = 0; j < 8; j++)
                     {
-                        if (sumar)
-                        {
-                            tablero[j, i] = (int)pieza.tipoPieza;//completo matriz con amenazas con nro correspondiente
-                            Amz_x_Cas[j, i] = Amz_x_Cas[j, i] + 1;//completo matriz con cant ataques sumando 1
-                        }
-                        else
-                        {
-                            Amz_x_Cas[j, i] = Amz_x_Cas[j, i] - 1;
-                        }
+                        tablero[j, i] = (int)pieza.tipoPieza;//completo matriz con amenazas con nro correspondiente
+                        Amz_x_Cas[j, i] = Amz_x_Cas[j, i] + 1;//completo matriz con cant ataques sumando 1
                     }
                 }
             }
@@ -119,13 +85,12 @@ namespace TP2021_Mendiburu_GeonasStunf
             //complete dos veces la matriz con 1 en la posicion propuesta
             Amz_x_Cas[pieza.pos.fila, pieza.pos.columna] -= 1;
         }
-        public void AmenazasMovimientoAlfil(int[,] Amz_x_Cas, int[,] pos_piezas, Pieza pieza, bool sumar)
+        public void AmenazasMovimientoAlfil(int[,] Amz_x_Cas, int[,] pos_piezas, Pieza pieza)
         {
 
             int i = pieza.pos.fila;
             int j = pieza.pos.columna;
-            if (sumar)
-            {
+           
                 while ((i >= 0 && j >= 0) && (i <= 7 && j <= 7))
                 {
                     Amz_x_Cas[i, j] += 1;
@@ -167,52 +132,13 @@ namespace TP2021_Mendiburu_GeonasStunf
                     j++;
                 }
                 Amz_x_Cas[pieza.pos.fila, pieza.pos.columna] -= 1;
-            }
-            else
-            {
-                while ((i >= 0 && j >= 0) && (i <= 7 && j <= 7))
-                {
-                    Amz_x_Cas[i, j] -= 1;
-
-                    i++;
-                    j++;
-                }
-                i = pieza.pos.fila;
-                j = pieza.pos.columna;
-                while ((i >= 0 && j >= 0) && (i <= 7 && j <= 7))
-                {
-                    Amz_x_Cas[i, j] -= 1;
-
-                    i--;
-                    j--;
-                }
-                Amz_x_Cas[pieza.pos.fila, pieza.pos.columna] += 1;
-                i = pieza.pos.fila;
-                j = pieza.pos.columna;
-                while ((i >= 0 && j >= 0) && (i <= 7 && j <= 7))
-                {
-                    Amz_x_Cas[i, j] -= 1;
-
-                    i++;
-                    j--;
-                }
-                Amz_x_Cas[pieza.pos.fila, pieza.pos.columna] += 1;
-                i = pieza.pos.fila;
-                j = pieza.pos.columna;
-                while ((i >= 0 && j >= 0) && (i <= 7 && j <= 7))
-                {
-                    Amz_x_Cas[i, j] -= 1;
-
-                    i--;
-                    j++;
-                }
-                Amz_x_Cas[pieza.pos.fila, pieza.pos.columna] += 1;
-            }
+            
+           
         }
-        public void AmenazasMovimientoReina(int[,] Amz_x_Cas, int[,] pos_piezas, Pieza pieza, bool sumar)
+        public void AmenazasMovimientoReina(int[,] Amz_x_Cas, int[,] pos_piezas, Pieza pieza)
         {
-            AmenazasMovimientoAlfil(Amz_x_Cas, pos_piezas, pieza, sumar);
-            AmenazasMovimientoTorre(Amz_x_Cas, pos_piezas, pieza, sumar);
+            AmenazasMovimientoAlfil(Amz_x_Cas, pos_piezas, pieza);
+            AmenazasMovimientoTorre(Amz_x_Cas, pos_piezas, pieza);
             Amz_x_Cas[pieza.pos.fila, pieza.pos.columna] += 1;
         }
         public cPosicion BuscarPosicionLibre(int pieza, Pieza[] arrayPiezas, int[,] matriz_alfil, int r1,int r2, bool rey = false)
@@ -269,20 +195,7 @@ namespace TP2021_Mendiburu_GeonasStunf
                             case 7:
                                 {
                                     if (matriz_alfil[pos.fila, pos.columna] == 2)
-                                        return pos;
-                                    else
-                                    {
-                                        int alfil7 = 2;
-                                        tablero[i, j] = 1;
-
-                                        cPosicion aux = new cPosicion();
-                                        aux = BuscarNposLibre(alfil7, matriz_alfil);
-
-                                        pos.fila = aux.fila;
-                                        pos.columna = aux.columna;
-
-                                        tablero[i, j] = 0;
-                                        return pos;
+                                        return pos;                               
                                     else
                                     {
                                         if (matriz_alfil[pos.fila, pos.columna] == 1)
@@ -299,9 +212,9 @@ namespace TP2021_Mendiburu_GeonasStunf
 
 
             }
-            return pos;//seria -1, podemos tirar excepcion?
+            return pos;//
         }
-        public void AmenazasMovimientoRey(int[,] Amz_x_Cas, int[,] pos_piezas, Pieza pieza, bool sumar)
+        public void AmenazasMovimientoRey(int[,] Amz_x_Cas, int[,] pos_piezas, Pieza pieza)
         {
             for (int i = 0; i < 8; i++)
             {
@@ -350,28 +263,28 @@ namespace TP2021_Mendiburu_GeonasStunf
                 switch (piezas[i].tipoPieza)
                 {
                     case e_Pieza.CABALLO1:
-                        AmenazasMovimientoCaballos(Amz_x_Cas, pos_piezas, piezas[i], sumar);
+                        AmenazasMovimientoCaballos(Amz_x_Cas, pos_piezas, piezas[i]);
                         break;
                     case e_Pieza.CABALLO2:
-                        AmenazasMovimientoCaballos(Amz_x_Cas, pos_piezas, piezas[i], sumar);
+                        AmenazasMovimientoCaballos(Amz_x_Cas, pos_piezas, piezas[i]);
                         break;
                     case e_Pieza.TORRE1:
-                        AmenazasMovimientoTorre(Amz_x_Cas, pos_piezas, piezas[i], sumar);
+                        AmenazasMovimientoTorre(Amz_x_Cas, pos_piezas, piezas[i]);
                         break;
                     case e_Pieza.TORRE2:
-                        AmenazasMovimientoTorre(Amz_x_Cas, pos_piezas, piezas[i], sumar);
+                        AmenazasMovimientoTorre(Amz_x_Cas, pos_piezas, piezas[i]);
                         break;
                     case e_Pieza.ALFIL1:
-                        AmenazasMovimientoAlfil(Amz_x_Cas, pos_piezas, piezas[i], sumar);
+                        AmenazasMovimientoAlfil(Amz_x_Cas, pos_piezas, piezas[i]);
                         break;
                     case e_Pieza.ALFIL2:
-                        AmenazasMovimientoAlfil(Amz_x_Cas, pos_piezas, piezas[i], sumar);
+                        AmenazasMovimientoAlfil(Amz_x_Cas, pos_piezas, piezas[i]);
                         break;
                     case e_Pieza.REINA:
-                        AmenazasMovimientoReina(Amz_x_Cas, pos_piezas, piezas[i], sumar);
+                        AmenazasMovimientoReina(Amz_x_Cas, pos_piezas, piezas[i]);
                         break;
                     case e_Pieza.REY:
-                        AmenazasMovimientoRey(Amz_x_Cas, pos_piezas, piezas[i], sumar);
+                        AmenazasMovimientoRey(Amz_x_Cas, pos_piezas, piezas[i]);
                         break;
                     default:
                         break;
@@ -683,24 +596,7 @@ namespace TP2021_Mendiburu_GeonasStunf
             }
             matriz_Fatales.tablero[pieza.pos.fila, pieza.pos.columna] = (int)pieza.tipoPieza;
         }
-        public cPosicion BuscarNposLibre(int alfil, int[,] matriz_alfil)
-        {
-            cPosicion Pos = new cPosicion();
-            for (int i = 0; i < 8; i++)
-            {
-                for (int j = 0; j < 8; j++)
-                {
-                    if (tablero[i, j] == 0 && matriz_alfil[i, j] == alfil)
-                    {
-                        Pos.fila = i;
-                        Pos.columna = j;
-                        return Pos;
-                     
-                    }
-                }
-            }
-            return Pos;
-        }
+      
 
     }
 }

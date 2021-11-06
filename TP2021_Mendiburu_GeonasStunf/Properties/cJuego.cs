@@ -32,7 +32,7 @@ namespace TP2021_Mendiburu_GeonasStunf
 
                 //torre 1
                 arrayPiezas[2].pos.EleccionAlAzar();//elijo la posición de mi torre al azar.
-                casillas_amenazadas.AmenazasMovimientoTorre(cant_amenazasxCasillas.tablero, pos_piezas.tablero, arrayPiezas[2], true);//marco las amenazas
+                casillas_amenazadas.AmenazasMovimientoTorre(cant_amenazasxCasillas.tablero, pos_piezas.tablero, arrayPiezas[2]);//marco las amenazas
                 pos_piezas.tablero[arrayPiezas[2].pos.fila, arrayPiezas[2].pos.columna] = ((int)arrayPiezas[2].tipoPieza);//marco la posicion en la matriz de posiciones
 
                 //torre 2
@@ -50,7 +50,7 @@ namespace TP2021_Mendiburu_GeonasStunf
                 arrayPiezas[3].pos.columna = (int)aux.columna;//igualo a esa posicion encontrada
 
                 pos_piezas.tablero[aux.fila, aux.columna] = 5;//torre2
-                casillas_amenazadas.AmenazasMovimientoTorre(cant_amenazasxCasillas.tablero, pos_piezas.tablero, arrayPiezas[3], true);
+                casillas_amenazadas.AmenazasMovimientoTorre(cant_amenazasxCasillas.tablero, pos_piezas.tablero, arrayPiezas[3]);
 
                 //alfil 1
                 while (casillas_amenazadas.tablero[aux.fila, aux.columna] != 0 && matriz_alfil.tablero[aux.fila, aux.columna] != 1)//condicion para ver si se puede mover el alfil{
@@ -61,7 +61,7 @@ namespace TP2021_Mendiburu_GeonasStunf
                 arrayPiezas[4].pos.fila = (int)aux.fila;
                 arrayPiezas[4].pos.columna = (int)aux.columna;
 
-                casillas_amenazadas.AmenazasMovimientoAlfil(cant_amenazasxCasillas.tablero, pos_piezas.tablero, arrayPiezas[4], true);
+                casillas_amenazadas.AmenazasMovimientoAlfil(cant_amenazasxCasillas.tablero, pos_piezas.tablero, arrayPiezas[4]);
 
                 //alfil 2
                 while (casillas_amenazadas.tablero[aux.fila, aux.columna] != 0 && matriz_alfil.tablero[aux.fila, aux.columna] != 2)//condicion para ver si se puede mover el alfil{
@@ -72,7 +72,7 @@ namespace TP2021_Mendiburu_GeonasStunf
                 arrayPiezas[5].pos.fila = (int)aux.fila;
                 arrayPiezas[5].pos.columna = (int)aux.columna;
 
-                casillas_amenazadas.AmenazasMovimientoAlfil(cant_amenazasxCasillas.tablero, pos_piezas.tablero, arrayPiezas[5], true);
+                casillas_amenazadas.AmenazasMovimientoAlfil(cant_amenazasxCasillas.tablero, pos_piezas.tablero, arrayPiezas[5]);
 
                 //reina
                 while (casillas_amenazadas.tablero[aux.fila, aux.columna] != 0
@@ -88,7 +88,7 @@ namespace TP2021_Mendiburu_GeonasStunf
                 arrayPiezas[6].pos.fila = aux.fila;
                 arrayPiezas[6].pos.columna = aux.columna;
 
-                casillas_amenazadas.AmenazasMovimientoReina(cant_amenazasxCasillas.tablero, pos_piezas.tablero, arrayPiezas[6], true);
+                casillas_amenazadas.AmenazasMovimientoReina(cant_amenazasxCasillas.tablero, pos_piezas.tablero, arrayPiezas[6]);
 
                 //para que no me salte un -1 chequeo que hayan posiciones libres
                 casillas_amenazadas.ChequeoCasillerosLibres();
@@ -103,7 +103,7 @@ namespace TP2021_Mendiburu_GeonasStunf
                         cant_tab_generados++;
                         Console.WriteLine("\nTengo tablero n°:" + cant_tab_generados);
                         pos_piezas.ImprimirTablero();
-                        casillas_amenazadas.ImprimirTablero();
+                        //casillas_amenazadas.ImprimirTablero();
 
                         Console.WriteLine("\nAtaques fatales:" + cant_tab_generados);
                         casillas_amenazadas.ataquesLevesyFatales(matrizFatales[cant_tab_generados-1], pos_piezas, arrayPiezas);
@@ -125,7 +125,7 @@ namespace TP2021_Mendiburu_GeonasStunf
                     arrayPiezas[0].pos.columna = (int)auxLibre.columna;//pongo el caballo 1
 
                     pos_piezas.tablero[arrayPiezas[0].pos.fila, arrayPiezas[0].pos.columna] = 2;
-                    casillas_amenazadas.AmenazasMovimientoCaballos(cant_amenazasxCasillas.tablero, pos_piezas.tablero, arrayPiezas[0], true);
+                    casillas_amenazadas.AmenazasMovimientoCaballos(cant_amenazasxCasillas.tablero, pos_piezas.tablero, arrayPiezas[0]);
 
                     //caballo2
                     cuartoMin = tableroMinAmenazas();
@@ -134,7 +134,7 @@ namespace TP2021_Mendiburu_GeonasStunf
                     arrayPiezas[1].pos.columna = (int)auxLibre.columna;
 
                     pos_piezas.tablero[arrayPiezas[1].pos.fila, arrayPiezas[1].pos.columna] = 3;
-                    casillas_amenazadas.AmenazasMovimientoCaballos(cant_amenazasxCasillas.tablero, pos_piezas.tablero, arrayPiezas[1], true);
+                    casillas_amenazadas.AmenazasMovimientoCaballos(cant_amenazasxCasillas.tablero, pos_piezas.tablero, arrayPiezas[1]);
 
                     //rey
                     cuartoMin = tableroMinAmenazas();
@@ -143,7 +143,7 @@ namespace TP2021_Mendiburu_GeonasStunf
                     arrayPiezas[7].pos.columna = (int)auxLibre.columna;
 
                     pos_piezas.tablero[arrayPiezas[7].pos.fila, arrayPiezas[7].pos.columna] = 9;
-                    casillas_amenazadas.AmenazasMovimientoRey(cant_amenazasxCasillas.tablero, pos_piezas.tablero, arrayPiezas[7], true);
+                    casillas_amenazadas.AmenazasMovimientoRey(cant_amenazasxCasillas.tablero, pos_piezas.tablero, arrayPiezas[7]);
 
                     //me fijo si el tablero esta completo
                     casillas_amenazadas.ChequeoCasillerosLibres();
@@ -158,7 +158,7 @@ namespace TP2021_Mendiburu_GeonasStunf
                             cant_tab_generados++;
                             Console.WriteLine("\nTengo tablero n°:" + cant_tab_generados);
                             pos_piezas.ImprimirTablero();
-                            casillas_amenazadas.ImprimirTablero();
+                           // casillas_amenazadas.ImprimirTablero();
 
                             Console.WriteLine("\nAtaques fatales:" + cant_tab_generados);
                             casillas_amenazadas.ataquesLevesyFatales(matrizFatales[cant_tab_generados-1], pos_piezas, arrayPiezas);
@@ -213,7 +213,7 @@ namespace TP2021_Mendiburu_GeonasStunf
                                     cant_tab_generados++;
                                     Console.WriteLine("\nTengo tablero n°:" + cant_tab_generados);
                                     pos_piezas.ImprimirTablero();
-                                    casillas_amenazadas.ImprimirTablero();
+                                   // casillas_amenazadas.ImprimirTablero();
 
                                     Console.WriteLine("\nAtaques fatales:" + cant_tab_generados);
                                     casillas_amenazadas.ataquesLevesyFatales(matrizFatales[cant_tab_generados-1], pos_piezas, arrayPiezas);
@@ -340,102 +340,8 @@ namespace TP2021_Mendiburu_GeonasStunf
             }
 
 
-        }
-        public void IntercambiarCuartoTablero(int c1, int c2)
-        {
-            int[,] cuarto1 = new int[4, 4];
-            cuarto1 = LlenarCuartoTablero(c1);
-            int[,] cuarto2 = new int[4, 4];
-            cuarto2 = LlenarCuartoTablero(c2);
-            //RANGO:
-            int R1 = 0;
-            int R2 = 0;
-            switch (c1)
-            {
-                case 1:
-                    {
-                        R1 = 0;
-                        R2 = 0;
-                    }
-                    break;
-                case 2:
-                    {
-                        R1 = 0;
-                        R2 = 4;
-                    }
-                    break;
-                case 3:
-                    {
-                        R1 = 4;
-                        R2 = 0;
-                    }
-                    break;
-                case 4:
-                    {
-                        R1 = 4;
-                        R2 = 4;
-                    }
-                    break;
-
-                default:
-                    {
-                        Console.WriteLine("No existe ese cuarto de tablero");
-                    }
-                    break;
-            }
-            PegarCuartosEnMatriz_Sol(cuarto2, R1, R2);
-
-            switch (c2)
-            {
-                case 1:
-                    {
-                        R1 = 0;
-                        R2 = 0;
-                    }
-                    break;
-                case 2:
-                    {
-                        R1 = 0;
-                        R2 = 4;
-                    }
-                    break;
-                case 3:
-                    {
-                        R1 = 4;
-                        R2 = 0;
-                    }
-                    break;
-                case 4:
-                    {
-                        R1 = 4;
-                        R2 = 4;
-                    }
-                    break;
-
-                default:
-                    {
-                        Console.WriteLine("No existe ese cuarto de tablero");
-                    }
-                    break;
-            }
-            PegarCuartosEnMatriz_Sol(cuarto1, R1, R2);
-        }
-        public void PegarCuartosEnMatriz_Sol(int[,] cuarto, int R1, int R2)
-        {
-            for (int i = R1; i < R1 + 4; i++)
-            {
-                for (int j = R2; j < R2 + 4; j++)
-                {
-                    if (cuarto[i - R1, j - R2] != 0)
-                    {
-                        arrayPiezas[cuarto[i - R1, j - R2] - 2].pos.fila = i;
-                        arrayPiezas[cuarto[i - R1, j - R2] - 2].pos.columna = j;
-                    }
-
-                    pos_piezas.tablero[i, j] =cuarto[i - R1, j - R2];
-                }
-            }
-        }
+        }      
+        
         public bool ChequearTablero()
         {
             bool optn = true;
@@ -452,8 +358,7 @@ namespace TP2021_Mendiburu_GeonasStunf
                     
                     if (arrayPiezas[i].pos.fila != (int)Tableros[j, i].pos.fila || arrayPiezas[i].pos.columna != (int)Tableros[j, i].pos.columna)//hago variar la fila (osea el tablero) 
                     {
-                        contador[j]++;
-                       
+                        contador[j]++;                    
                        
                     }
 
@@ -577,106 +482,7 @@ namespace TP2021_Mendiburu_GeonasStunf
             return rango;
 
         }
-        public void TableroYaGenerado()
-        {
-          
-                copiarPosiciones();
-                cant_tab_generados++;
-                Console.WriteLine("\nTengo tablero n°:" + cant_tab_generados);
-                pos_piezas.ImprimirTablero();
-                casillas_amenazadas.ImprimirTablero();
-                //ACA TAMBIEN TENDRIAMOS QUE ROTAR EL TABLERO!!
-                //---------------------------------------------------------------------
-                IntercambiarCuartoTablero(1, 2);
-                cant_amenazasxCasillas.InicializarMatrizEn0();
-                casillas_amenazadas.InicializarMatrizEn0();
-                casillas_amenazadas.AmenazarTablero(cant_amenazasxCasillas.tablero, pos_piezas.tablero, arrayPiezas, true);
-                casillas_amenazadas.ChequeoCasillerosLibres();
-                if (casillas_amenazadas.casillas_no_amenazadas == 0 && ChequearTablero() == true)
-                {
-                    //copiar matriz
-                    copiarPosiciones();
-                    cant_tab_generados++;
-                    Console.WriteLine("\nTengo tablero n°:" + cant_tab_generados);
-                    pos_piezas.ImprimirTablero();
-                    casillas_amenazadas.ImprimirTablero();
-                    IntercambiarCuartoTablero(2, 3);
-                    cant_amenazasxCasillas.InicializarMatrizEn0();
-                    casillas_amenazadas.InicializarMatrizEn0();
-                    casillas_amenazadas.AmenazarTablero(cant_amenazasxCasillas.tablero, pos_piezas.tablero, arrayPiezas, true);
-                    casillas_amenazadas.ChequeoCasillerosLibres();
-                    if (casillas_amenazadas.casillas_no_amenazadas == 0 && ChequearTablero() == true)
-                    {
-                        copiarPosiciones();
-
-                        cant_tab_generados++;
-                        Console.WriteLine("\nTengo tablero n°:" + cant_tab_generados);
-                        pos_piezas.ImprimirTablero();
-                        casillas_amenazadas.ImprimirTablero();
-                        IntercambiarCuartoTablero(3, 4);
-                        cant_amenazasxCasillas.InicializarMatrizEn0();
-                        casillas_amenazadas.InicializarMatrizEn0();
-                        casillas_amenazadas.AmenazarTablero(cant_amenazasxCasillas.tablero, pos_piezas.tablero, arrayPiezas, true);
-                        casillas_amenazadas.ChequeoCasillerosLibres();
-                        if (casillas_amenazadas.casillas_no_amenazadas == 0 && ChequearTablero() == true)
-                        {
-                            copiarPosiciones();
-
-                            cant_tab_generados++;
-                            Console.WriteLine("\nTengo tablero n°:" + cant_tab_generados);
-                            pos_piezas.ImprimirTablero();
-                            casillas_amenazadas.ImprimirTablero();
-                            IntercambiarCuartoTablero(1, 4);
-                            cant_amenazasxCasillas.InicializarMatrizEn0();
-                            casillas_amenazadas.InicializarMatrizEn0();
-                            casillas_amenazadas.AmenazarTablero(cant_amenazasxCasillas.tablero, pos_piezas.tablero, arrayPiezas, true);
-                            casillas_amenazadas.ChequeoCasillerosLibres();
-                            if (casillas_amenazadas.casillas_no_amenazadas == 0 && ChequearTablero() == true)
-                            {
-                                copiarPosiciones();
-
-                                cant_tab_generados++;
-                                Console.WriteLine("\nTengo tablero n°:" + cant_tab_generados);
-                                pos_piezas.ImprimirTablero();
-                                casillas_amenazadas.ImprimirTablero();
-                                IntercambiarCuartoTablero(1, 3);
-                                cant_amenazasxCasillas.InicializarMatrizEn0();
-                                casillas_amenazadas.InicializarMatrizEn0();
-                                casillas_amenazadas.AmenazarTablero(cant_amenazasxCasillas.tablero, pos_piezas.tablero, arrayPiezas, true);
-                                casillas_amenazadas.ChequeoCasillerosLibres();
-                                if (casillas_amenazadas.casillas_no_amenazadas == 0 && ChequearTablero() == true)
-                                {
-                                    copiarPosiciones();
-
-                                    cant_tab_generados++;
-                                    Console.WriteLine("\nTengo tablero n°:" + cant_tab_generados);
-                                    pos_piezas.ImprimirTablero();
-                                    casillas_amenazadas.ImprimirTablero();
-                                    IntercambiarCuartoTablero(4, 2);
-                                    cant_amenazasxCasillas.InicializarMatrizEn0();
-                                    casillas_amenazadas.InicializarMatrizEn0();
-                                    casillas_amenazadas.AmenazarTablero(cant_amenazasxCasillas.tablero, pos_piezas.tablero, arrayPiezas, true);
-                                    casillas_amenazadas.ChequeoCasillerosLibres();
-                                    if (casillas_amenazadas.casillas_no_amenazadas == 0 && ChequearTablero() == true)
-                                    {
-                                        copiarPosiciones();
-
-                                        cant_tab_generados++;
-                                        Console.WriteLine("\nTengo tablero n°:" + cant_tab_generados);
-                                        pos_piezas.ImprimirTablero();
-                                        casillas_amenazadas.ImprimirTablero();
-
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-
-             
-            
-
-        }
+       
  
     }
 }

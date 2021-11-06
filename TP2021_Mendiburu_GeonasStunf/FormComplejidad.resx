@@ -118,8 +118,20 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="label1.Text" xml:space="preserve">
-    <value>- Cota inferior: es cuando genera el tablero en el primer posicionamiento aleatorio de piezas. 
+    <value>- Cota inferior: 
+se da cuando genera el tablero en el primer posicionamiento aleatorio de piezas. 
 Teniendo en cuenta que los fors con límites definidos (en este caso 8 iteraciones) cuentan como
  cómputo de tiempo constante podríamos decir que  la cota inferior es constante.</value>
+  </data>
+  <data name="label2.Text" xml:space="preserve">
+    <value>- Cota superior:  
+ Para posicionar las piezas al azar no se hacen mas de 3 iteraciones (menos en la primer pieza 
+posicionada que no se itera).
+ En todas las funciones no se recorre mas de dos fors de 8 iteraciones cada uno, por lo tanto
+ el tiempo de ejecucion de estas funciones es considerado constante.
+ Sin embargo, al momento de mover piezas, si la casilla que mas amenazas tiene esta amenazada 
+por el alfil significa que debemos moverlo a una casilla sin amenazas del cuarto de tablero con menor 
+cantidad de amenazas. Pero en caso de que el alfil no tenga permitido ir la primer posicion del cuarto 
+de tablero con menos amenazas, se llama nuevamente a la funcion y se recorrerian 4 fors de 8 iteraciones.</value>
   </data>
 </root>

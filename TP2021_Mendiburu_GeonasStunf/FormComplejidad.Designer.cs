@@ -34,6 +34,8 @@ namespace TP2021_Mendiburu_GeonasStunf
             this.btnVolver = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.lblCotainferior = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // lblComplex
@@ -65,9 +67,9 @@ namespace TP2021_Mendiburu_GeonasStunf
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Mongolian Baiti", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.DarkRed;
-            this.label1.Location = new System.Drawing.Point(52, 66);
+            this.label1.Location = new System.Drawing.Point(13, 42);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(686, 54);
+            this.label1.Size = new System.Drawing.Size(686, 72);
             this.label1.TabIndex = 2;
             this.label1.Text = resources.GetString("label1.Text");
             // 
@@ -77,11 +79,33 @@ namespace TP2021_Mendiburu_GeonasStunf
             this.lblCotainferior.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.lblCotainferior.Font = new System.Drawing.Font("Mongolian Baiti", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCotainferior.ForeColor = System.Drawing.Color.DarkRed;
-            this.lblCotainferior.Location = new System.Drawing.Point(261, 141);
+            this.lblCotainferior.Location = new System.Drawing.Point(197, 128);
             this.lblCotainferior.Name = "lblCotainferior";
-            this.lblCotainferior.Size = new System.Drawing.Size(275, 20);
+            this.lblCotainferior.Size = new System.Drawing.Size(323, 20);
             this.lblCotainferior.TabIndex = 3;
-            this.lblCotainferior.Text = "Ω(C)=n, n cantidad de entradas";
+            this.lblCotainferior.Text = "T(n) = Ω(n) , n: cantidad de entradas";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Mongolian Baiti", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.DarkRed;
+            this.label2.Location = new System.Drawing.Point(13, 168);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(756, 162);
+            this.label2.TabIndex = 4;
+            this.label2.Text = resources.GetString("label2.Text");
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Mongolian Baiti", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.DarkRed;
+            this.label3.Location = new System.Drawing.Point(197, 349);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(353, 20);
+            this.label3.TabIndex = 5;
+            this.label3.Text = "T(n) = O( n^2) , n: cantidad de entradas";
             // 
             // FormComplejidad
             // 
@@ -89,6 +113,8 @@ namespace TP2021_Mendiburu_GeonasStunf
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.AntiqueWhite;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.lblCotainferior);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnVolver);
@@ -106,5 +132,7 @@ namespace TP2021_Mendiburu_GeonasStunf
         private System.Windows.Forms.Button btnVolver;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label lblCotainferior;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
     }
 }
