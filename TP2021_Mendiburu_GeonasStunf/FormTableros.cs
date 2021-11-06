@@ -66,7 +66,7 @@ namespace TP2021_Mendiburu_GeonasStunf
         public void ImprimirTableros()
         {
             //nt l = 0;
-            //TxtNum.Text( ToString(tab));
+            TxtNum.Text=Convert.ToString(tab+1);
 
            Tableros();
 
@@ -310,6 +310,11 @@ namespace TP2021_Mendiburu_GeonasStunf
         {
             this.Close();
             form1.Show();
+        }
+
+        private void TableroNumero_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

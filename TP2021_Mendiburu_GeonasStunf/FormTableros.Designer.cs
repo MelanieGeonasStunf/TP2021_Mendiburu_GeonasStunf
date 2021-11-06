@@ -156,20 +156,24 @@ namespace TP2021_Mendiburu_GeonasStunf
             // 
             // TableroNumero
             // 
+            this.TableroNumero.BackColor = System.Drawing.Color.Maroon;
             this.TableroNumero.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.TableroNumero.Font = new System.Drawing.Font("Mongolian Baiti", 14.25F);
+            this.TableroNumero.ForeColor = System.Drawing.Color.White;
             this.TableroNumero.Location = new System.Drawing.Point(67, 35);
             this.TableroNumero.Name = "TableroNumero";
             this.TableroNumero.ReadOnly = true;
             this.TableroNumero.Size = new System.Drawing.Size(133, 22);
             this.TableroNumero.TabIndex = 4;
             this.TableroNumero.Text = "Tablero numero:";
+            this.TableroNumero.TextChanged += new System.EventHandler(this.TableroNumero_TextChanged);
             // 
             // TxtNum
             // 
-            this.TxtNum.BackColor = System.Drawing.SystemColors.Control;
+            this.TxtNum.BackColor = System.Drawing.Color.Maroon;
             this.TxtNum.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.TxtNum.Font = new System.Drawing.Font("Mongolian Baiti", 14.25F);
+            this.TxtNum.ForeColor = System.Drawing.Color.White;
             this.TxtNum.Location = new System.Drawing.Point(200, 35);
             this.TxtNum.Name = "TxtNum";
             this.TxtNum.ReadOnly = true;

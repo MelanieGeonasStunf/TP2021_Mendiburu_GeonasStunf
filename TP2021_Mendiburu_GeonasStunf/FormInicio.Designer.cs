@@ -38,10 +38,10 @@ namespace TP2021_Mendiburu_GeonasStunf
             // 
             // txtCantTabaGenerar
             // 
-            this.txtCantTabaGenerar.BackColor = System.Drawing.Color.NavajoWhite;
+            this.txtCantTabaGenerar.BackColor = System.Drawing.Color.Maroon;
             this.txtCantTabaGenerar.Cursor = System.Windows.Forms.Cursors.Default;
             this.txtCantTabaGenerar.Font = new System.Drawing.Font("Mongolian Baiti", 18F);
-            this.txtCantTabaGenerar.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.txtCantTabaGenerar.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.txtCantTabaGenerar.Location = new System.Drawing.Point(171, 152);
             this.txtCantTabaGenerar.Name = "txtCantTabaGenerar";
             this.txtCantTabaGenerar.ReadOnly = true;
@@ -74,13 +74,15 @@ namespace TP2021_Mendiburu_GeonasStunf
             // 
             // btnSalir
             // 
+            this.btnSalir.BackColor = System.Drawing.Color.Maroon;
             this.btnSalir.Font = new System.Drawing.Font("Mongolian Baiti", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSalir.ForeColor = System.Drawing.Color.White;
             this.btnSalir.Location = new System.Drawing.Point(171, 234);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(103, 49);
             this.btnSalir.TabIndex = 3;
             this.btnSalir.Text = "Salir";
-            this.btnSalir.UseVisualStyleBackColor = true;
+            this.btnSalir.UseVisualStyleBackColor = false;
             this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
             // 
             // BttnPropiedades
