@@ -272,6 +272,19 @@ namespace TP2021_Mendiburu_GeonasStunf
                                         return pos;
                                     else
                                     {
+                                        int alfil7 = 2;
+                                        tablero[i, j] = 1;
+
+                                        cPosicion aux = new cPosicion();
+                                        aux = BuscarNposLibre(alfil7, matriz_alfil);
+
+                                        pos.fila = aux.fila;
+                                        pos.columna = aux.columna;
+
+                                        tablero[i, j] = 0;
+                                        return pos;
+                                    else
+                                    {
                                         if (matriz_alfil[pos.fila, pos.columna] == 1)
                                         {
                                             pos.fila = -1;
@@ -286,17 +299,6 @@ namespace TP2021_Mendiburu_GeonasStunf
 
 
             }
-
-
-
-
-
-
-            // throw Exceptio
-            //si la posicion es -1 ¡Tengo tablero!
-            //return pos;
-            //throw new NullReferenceException("Error.");
-
             return pos;//seria -1, podemos tirar excepcion?
         }
         public void AmenazasMovimientoRey(int[,] Amz_x_Cas, int[,] pos_piezas, Pieza pieza, bool sumar)
