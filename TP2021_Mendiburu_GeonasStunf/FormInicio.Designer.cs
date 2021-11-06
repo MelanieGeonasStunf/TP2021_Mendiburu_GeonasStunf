@@ -38,7 +38,7 @@ namespace TP2021_Mendiburu_GeonasStunf
             // 
             // txtCantTabaGenerar
             // 
-            this.txtCantTabaGenerar.BackColor = System.Drawing.Color.NavajoWhite;
+            this.txtCantTabaGenerar.BackColor = System.Drawing.Color.MistyRose;
             this.txtCantTabaGenerar.Cursor = System.Windows.Forms.Cursors.Default;
             this.txtCantTabaGenerar.Font = new System.Drawing.Font("Mongolian Baiti", 18F);
             this.txtCantTabaGenerar.ForeColor = System.Drawing.SystemColors.WindowText;
@@ -53,18 +53,19 @@ namespace TP2021_Mendiburu_GeonasStunf
             // 
             // txtPedirCantTableros
             // 
-            this.txtPedirCantTableros.BackColor = System.Drawing.Color.NavajoWhite;
+            this.txtPedirCantTableros.BackColor = System.Drawing.Color.MistyRose;
             this.txtPedirCantTableros.Font = new System.Drawing.Font("Mongolian Baiti", 18F);
             this.txtPedirCantTableros.Location = new System.Drawing.Point(523, 152);
             this.txtPedirCantTableros.Name = "txtPedirCantTableros";
             this.txtPedirCantTableros.Size = new System.Drawing.Size(100, 35);
             this.txtPedirCantTableros.TabIndex = 1;
+            this.txtPedirCantTableros.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtPedirCantTableros.TextChanged += new System.EventHandler(this.txtPedirCantTableros_TextChanged);
             // 
             // btnGenerar
             // 
             this.btnGenerar.Font = new System.Drawing.Font("Mongolian Baiti", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnGenerar.Location = new System.Drawing.Point(520, 234);
+            this.btnGenerar.Location = new System.Drawing.Point(171, 234);
             this.btnGenerar.Name = "btnGenerar";
             this.btnGenerar.Size = new System.Drawing.Size(103, 49);
             this.btnGenerar.TabIndex = 2;
@@ -75,7 +76,7 @@ namespace TP2021_Mendiburu_GeonasStunf
             // btnSalir
             // 
             this.btnSalir.Font = new System.Drawing.Font("Mongolian Baiti", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSalir.Location = new System.Drawing.Point(171, 234);
+            this.btnSalir.Location = new System.Drawing.Point(523, 234);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(103, 49);
             this.btnSalir.TabIndex = 3;
@@ -88,10 +89,11 @@ namespace TP2021_Mendiburu_GeonasStunf
             this.BttnPropiedades.Font = new System.Drawing.Font("Mongolian Baiti", 14.25F);
             this.BttnPropiedades.Location = new System.Drawing.Point(329, 234);
             this.BttnPropiedades.Name = "BttnPropiedades";
-            this.BttnPropiedades.Size = new System.Drawing.Size(134, 49);
+            this.BttnPropiedades.Size = new System.Drawing.Size(132, 49);
             this.BttnPropiedades.TabIndex = 4;
             this.BttnPropiedades.Text = "Propiedades ";
             this.BttnPropiedades.UseVisualStyleBackColor = true;
+            this.BttnPropiedades.Click += new System.EventHandler(this.BttnPropiedades_Click);
             // 
             // FormInicio
             // 

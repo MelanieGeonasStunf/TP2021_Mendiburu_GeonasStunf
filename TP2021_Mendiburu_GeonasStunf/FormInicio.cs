@@ -64,5 +64,11 @@ namespace TP2021_Mendiburu_GeonasStunf
         {
             this.Close();
         }
+
+        private void BttnPropiedades_Click(object sender, EventArgs e)
+        {
+            Form formProp = new FormPropiedadesPoda(this);
+            formProp.Show();
+        }
     }
 }
