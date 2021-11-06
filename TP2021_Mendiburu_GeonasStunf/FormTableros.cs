@@ -102,7 +102,7 @@ namespace TP2021_Mendiburu_GeonasStunf
                             break;
                         }
 
-                    case e_Pieza.ALFIL1:
+                    case e_Pieza.ALFIL1: 
                     case e_Pieza.ALFIL2:
                         {
                             cPosicion aux = new cPosicion();

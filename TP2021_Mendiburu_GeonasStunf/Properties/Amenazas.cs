@@ -252,13 +252,13 @@ namespace TP2021_Mendiburu_GeonasStunf
                                 }
                             case 6:
                                 {
-                                    if (matriz_alfil[pos.fila, pos.columna] == 1)
+                                    if (matriz_alfil[pos.fila, pos.columna] == 2)
                                         return pos;
                                     break;
                                 }
                             case 7:
                                 {
-                                    if (matriz_alfil[pos.fila, pos.columna] == 2)
+                                    if (matriz_alfil[pos.fila, pos.columna] == 1)
                                         return pos;
                                     break;
                                 }

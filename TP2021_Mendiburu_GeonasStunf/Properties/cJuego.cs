@@ -105,7 +105,7 @@ namespace TP2021_Mendiburu_GeonasStunf
                         pos_piezas.ImprimirTablero();
                         casillas_amenazadas.ImprimirTablero();
 
-                        Console.WriteLine("\nAtques fatales:" + cant_tab_generados);
+                        Console.WriteLine("\nAtaques fatales:" + cant_tab_generados);
                         casillas_amenazadas.ataquesLevesyFatales(matrizFatales[cant_tab_generados-1], pos_piezas, arrayPiezas);
                         matrizFatales[cant_tab_generados - 1].ImprimirTablero();
 
@@ -159,7 +159,7 @@ namespace TP2021_Mendiburu_GeonasStunf
                             pos_piezas.ImprimirTablero();
                             casillas_amenazadas.ImprimirTablero();
 
-                            Console.WriteLine("\nAtques fatales:" + cant_tab_generados);
+                            Console.WriteLine("\nAtaques fatales:" + cant_tab_generados);
                             casillas_amenazadas.ataquesLevesyFatales(matrizFatales[cant_tab_generados-1], pos_piezas, arrayPiezas);
                             matrizFatales[cant_tab_generados - 1].ImprimirTablero();
 
@@ -182,6 +182,7 @@ namespace TP2021_Mendiburu_GeonasStunf
                                 arrayPiezas[max - 2].pos.fila = (int)aux2.fila;//nunca tiene que ser -1
                                 arrayPiezas[max - 2].pos.columna = (int)aux2.columna;//nunca tiene que ser -1
 
+                       
                                 pos_piezas.LiberarPieza(max);
                                 pos_piezas.tablero[arrayPiezas[max - 2].pos.fila, arrayPiezas[max - 2].pos.columna] = (int)arrayPiezas[max - 2].tipoPieza;
                                 casillas_amenazadas.InicializarMatrizEn0();
@@ -189,10 +190,7 @@ namespace TP2021_Mendiburu_GeonasStunf
                                 casillas_amenazadas.AmenazarTablero(cant_amenazasxCasillas.tablero, pos_piezas.tablero, arrayPiezas, true);
                                 //movi la pieza y reamenace todo
                                 casillas_amenazadas.ChequeoCasillerosLibres();
-                            // pos_piezas.ImprimirTablero();
-                            // Console.WriteLine("\nTablero chequeo:\n");
-                            // casillas_amenazadas.ImprimirTablero();
-                            //TAL VEZ NOS CONVIENE HACER INTERCAMBIOS ACA TAMBIEN -> en una de esas hace un tablero
+                            
                             if (casillas_amenazadas.casillas_no_amenazadas == 0)
                             {
                                 bool chequear = ChequearTablero();
@@ -206,7 +204,7 @@ namespace TP2021_Mendiburu_GeonasStunf
                                     pos_piezas.ImprimirTablero();
                                     casillas_amenazadas.ImprimirTablero();
 
-                                    Console.WriteLine("\nAtques fatales:" + cant_tab_generados);
+                                    Console.WriteLine("\nAtaques fatales:" + cant_tab_generados);
                                     casillas_amenazadas.ataquesLevesyFatales(matrizFatales[cant_tab_generados-1], pos_piezas, arrayPiezas);
                                     matrizFatales[cant_tab_generados-1].ImprimirTablero();
                                     break;
@@ -663,9 +661,12 @@ namespace TP2021_Mendiburu_GeonasStunf
                         }
                     }
                 }
+
+             
             
 
         }
+ 
     }
 }
 
