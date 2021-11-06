@@ -79,8 +79,7 @@ namespace TP2021_Mendiburu_GeonasStunf
                             aux.fila = partida.Tableros[tab, i].pos.fila;
                             aux.columna = partida.Tableros[tab, i].pos.columna;
 
-
-                            _chessBoardPanels[aux.fila, aux.columna].BackgroundImage = Image.FromFile("caballo1.png");
+                            _chessBoardPanels[aux.fila, aux.columna].BackgroundImage = Image.FromFile("caballo.png");
                             _chessBoardPanels[aux.fila, aux.columna].BackgroundImageLayout = ImageLayout.Stretch;
                             //Controls.Add(_chessBoardPanels[aux.fila, aux.columna]);
 
@@ -94,13 +93,11 @@ namespace TP2021_Mendiburu_GeonasStunf
                             aux.fila = partida.Tableros[tab, i].pos.fila;
                             aux.columna = partida.Tableros[tab, i].pos.columna;
 
-
                             _chessBoardPanels[aux.fila, aux.columna].BackgroundImage = Image.FromFile("torre2.png");
                             _chessBoardPanels[aux.fila, aux.columna].BackgroundImageLayout = ImageLayout.Stretch;
                             //Controls.Add(_chessBoardPanels[aux.fila, aux.columna]);
 
                             break;
-
                         }
 
                     case e_Pieza.ALFIL1:
@@ -113,7 +110,6 @@ namespace TP2021_Mendiburu_GeonasStunf
                             _chessBoardPanels[aux.fila, aux.columna].BackgroundImageLayout = ImageLayout.Stretch;
                             Controls.Add(_chessBoardPanels[aux.fila, aux.columna]);
                             break;
-
                         }
                     case e_Pieza.REINA:
                         {
@@ -191,7 +187,7 @@ namespace TP2021_Mendiburu_GeonasStunf
             else
             {
                 form1.Show();
-                this.Close();
+                this.Close();//
             }
         }
 
