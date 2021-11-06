@@ -258,7 +258,7 @@ namespace TP2021_Mendiburu_GeonasStunf
             tab++;
             if (tab < partida.cant_tableros_a_generar)
             {
-                
+               
                 Eliminar();
                 ImprimirTableros();
                 rdbttnAmenazasfatales.Checked = false;
@@ -267,14 +267,16 @@ namespace TP2021_Mendiburu_GeonasStunf
             }
             else
             {
-               
-                form1.Show();
-                this.Close();//
+                DialogResult mensaje = MessageBox.Show("No hay más tableros, presione finalizar para volver");
+                tab--;
+                //form1.Show();
+                //this.Close();//
             }
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
+           
             if (0 < tab && tab < partida.cant_tableros_a_generar)
             {
                 tab--;

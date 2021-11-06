@@ -34,11 +34,13 @@ namespace TP2021_Mendiburu_GeonasStunf
         {
             FormComplejidad formCom = new FormComplejidad(form1, this);
             formCom.Show();
+            this.Hide();
         }
 
         private void btnVolver_Click(object sender, EventArgs e)
         {       
             form1.Show();
+            this.Close();
         }
     }
 }

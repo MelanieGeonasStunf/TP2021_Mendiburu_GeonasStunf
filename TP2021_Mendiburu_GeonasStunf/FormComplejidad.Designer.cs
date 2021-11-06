@@ -50,7 +50,7 @@ namespace TP2021_Mendiburu_GeonasStunf
             // btnVolver
             // 
             this.btnVolver.BackColor = System.Drawing.Color.IndianRed;
-            this.btnVolver.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnVolver.Font = new System.Drawing.Font("Mongolian Baiti", 14.25F, System.Drawing.FontStyle.Bold);
             this.btnVolver.ForeColor = System.Drawing.Color.AntiqueWhite;
             this.btnVolver.Location = new System.Drawing.Point(603, 349);
             this.btnVolver.Name = "btnVolver";
@@ -74,6 +74,7 @@ namespace TP2021_Mendiburu_GeonasStunf
             // lblCotainferior
             // 
             this.lblCotainferior.AutoSize = true;
+            this.lblCotainferior.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.lblCotainferior.Font = new System.Drawing.Font("Mongolian Baiti", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCotainferior.ForeColor = System.Drawing.Color.DarkRed;
             this.lblCotainferior.Location = new System.Drawing.Point(261, 141);

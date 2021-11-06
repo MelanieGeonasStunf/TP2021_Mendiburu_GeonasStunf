@@ -29,21 +29,32 @@ namespace TP2021_Mendiburu_GeonasStunf
 
         private void btnGenerar_Click(object sender, EventArgs e)
         {
-            int cant = int.Parse(txtPedirCantTableros.Text);
-            if (cant <= 0)
+            if (int.TryParse(txtPedirCantTableros.Text, out _))
             {
-                DialogResult mensaje = MessageBox.Show("Ingrese una cantidad mayor a 0", "CANTIDAD INACEPTABLE");
+                int cant = int.Parse(txtPedirCantTableros.Text);
+
+                if (cant <= 0 )
+                {
+                    DialogResult mensaje = MessageBox.Show("Ingrese una cantidad mayor a 0", "CANTIDAD INACEPTABLE");
+                }
+                else
+                {
+
+                    cJuego partida = new cJuego();//tuvimos en cuenta los bordes del tablero haciendo los randoms de 0 a 8
+                    partida.InicializarTableroAlfil();
+                    partida.arrayPiezas = CrearPiezas();
+                    partida.cant_tableros_a_generar = cant;
+                    partida.GenerarTableros();
+                    FormTableros formTab = new FormTableros(partida, this);
+                    formTab.Show();
+                    this.Hide();
+
+                }
             }
             else
             {
-                cJuego partida = new cJuego();//tuvimos en cuenta los bordes del tablero haciendo los randoms de 0 a 8
-                partida.InicializarTableroAlfil();
-                partida.arrayPiezas = CrearPiezas();
-                partida.cant_tableros_a_generar = cant;
-                partida.GenerarTableros();
-                FormTableros formTab = new FormTableros(partida,this);
-                formTab.Show();
-                this.Hide();
+                DialogResult mensaje = MessageBox.Show("Ingrese un número", "CANTIDAD INACEPTABLE");
+
             }
         }
         private void txtPedirCantTableros_TextChanged(object sender, EventArgs e)
@@ -69,6 +80,7 @@ namespace TP2021_Mendiburu_GeonasStunf
         {
             Form formProp = new FormPropiedadesPoda(this);
             formProp.Show();
+            this.Hide();
         }
     }
 }

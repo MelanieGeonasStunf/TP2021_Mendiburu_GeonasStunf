@@ -23,7 +23,8 @@ namespace TP2021_Mendiburu_GeonasStunf
 
         private void btnVolver_Click(object sender, EventArgs e)
         {
-
+            form1.Show();
+            this.Close();
         }
     }
 }
