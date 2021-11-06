@@ -46,11 +46,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FormComplejidad.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormComplejidad.Designer.cs">
+      <DependentUpon>FormComplejidad.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormInicio.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FormInicio.Designer.cs">
       <DependentUpon>FormInicio.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormPropiedades.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormPropiedades.Designer.cs">
+      <DependentUpon>FormPropiedades.cs</DependentUpon>
     </Compile>
     <Compile Include="FormTableros.cs">
       <SubType>Form</SubType>
@@ -61,8 +73,14 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\Amenazas.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="FormComplejidad.resx">
+      <DependentUpon>FormComplejidad.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormInicio.resx">
       <DependentUpon>FormInicio.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormPropiedades.resx">
+      <DependentUpon>FormPropiedades.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormTableros.resx">
       <DependentUpon>FormTableros.cs</DependentUpon>
