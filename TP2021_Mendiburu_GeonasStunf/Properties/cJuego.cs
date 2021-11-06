@@ -53,7 +53,7 @@ namespace TP2021_Mendiburu_GeonasStunf
                 casillas_amenazadas.AmenazasMovimientoTorre(cant_amenazasxCasillas.tablero, pos_piezas.tablero, arrayPiezas[3], true);
 
                 //alfil 1
-                while (casillas_amenazadas.tablero[aux.fila, aux.columna] != 0 || matriz_alfil.tablero[aux.fila, aux.columna] != 1)//condicion para ver si se puede mover el alfil{
+                while (casillas_amenazadas.tablero[aux.fila, aux.columna] != 0 && matriz_alfil.tablero[aux.fila, aux.columna] != 1)//condicion para ver si se puede mover el alfil{
                 {
                     aux.EleccionAlAzar();
                 }
@@ -178,21 +178,28 @@ namespace TP2021_Mendiburu_GeonasStunf
                                 cPosicion aux2 = new cPosicion();
                                 cuartoMin = tableroMinAmenazas();                                
                                 aux2 = casillas_amenazadas.BuscarPosicionLibre(max, arrayPiezas, matriz_alfil.tablero, cuartoMin[0], cuartoMin[1]);//pongo la posicion de esa pieza en otro lugar libre, pongo la pieza en 0, marco el valor nuevo en el tablero y completo amenazas
-                           
+                            if (aux2.fila == -1 && aux2.columna == -1)
+                            {
+                                aux2 = casillas_amenazadas.BuscarPosicionLibre(9, arrayPiezas, matriz_alfil.tablero, cuartoMin[0], cuartoMin[1]);//pongo la posicion de esa pieza en otro lugar libre, pongo la pieza en 0, marco el valor nuevo en el tablero y completo amenazas
+                                arrayPiezas[7].pos.fila = (int)aux2.fila;//nunca tiene que ser -1
+                                arrayPiezas[7].pos.columna = (int)aux2.columna;//nunca tiene que ser -1
+                                pos_piezas.LiberarPieza(9);
+                                pos_piezas.tablero[arrayPiezas[7].pos.fila, arrayPiezas[7].pos.columna] = (int)arrayPiezas[7].tipoPieza;
+                            }
+                            else
+                            {
                                 arrayPiezas[max - 2].pos.fila = (int)aux2.fila;//nunca tiene que ser -1
                                 arrayPiezas[max - 2].pos.columna = (int)aux2.columna;//nunca tiene que ser -1
 
                                 pos_piezas.LiberarPieza(max);
                                 pos_piezas.tablero[arrayPiezas[max - 2].pos.fila, arrayPiezas[max - 2].pos.columna] = (int)arrayPiezas[max - 2].tipoPieza;
+                            }
                                 casillas_amenazadas.InicializarMatrizEn0();
                                 cant_amenazasxCasillas.InicializarMatrizEn0();
                                 casillas_amenazadas.AmenazarTablero(cant_amenazasxCasillas.tablero, pos_piezas.tablero, arrayPiezas, true);
                                 //movi la pieza y reamenace todo
                                 casillas_amenazadas.ChequeoCasillerosLibres();
-                            // pos_piezas.ImprimirTablero();
-                            // Console.WriteLine("\nTablero chequeo:\n");
-                            // casillas_amenazadas.ImprimirTablero();
-                            //TAL VEZ NOS CONVIENE HACER INTERCAMBIOS ACA TAMBIEN -> en una de esas hace un tablero
+                           
                             if (casillas_amenazadas.casillas_no_amenazadas == 0)
                             {
                                 bool chequear = ChequearTablero();

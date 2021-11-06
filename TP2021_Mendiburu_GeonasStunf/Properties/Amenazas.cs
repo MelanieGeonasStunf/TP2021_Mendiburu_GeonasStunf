@@ -254,12 +254,29 @@ namespace TP2021_Mendiburu_GeonasStunf
                                 {
                                     if (matriz_alfil[pos.fila, pos.columna] == 1)
                                         return pos;
+                                    else
+                                    {
+                                        if (matriz_alfil[pos.fila, pos.columna] == 2)
+                                        {
+                                            pos.fila = -1;
+                                            pos.columna = -1;
+                                        }
+
+                                    }
                                     break;
                                 }
                             case 7:
                                 {
                                     if (matriz_alfil[pos.fila, pos.columna] == 2)
                                         return pos;
+                                    else
+                                    {
+                                        if (matriz_alfil[pos.fila, pos.columna] == 1)
+                                        {
+                                            pos.fila = -1;
+                                            pos.columna = -1;
+                                        }
+                                    }
                                     break;
                                 }
                         }
@@ -663,5 +680,24 @@ namespace TP2021_Mendiburu_GeonasStunf
             }
             matriz_Fatales.tablero[pieza.pos.fila, pieza.pos.columna] = (int)pieza.tipoPieza;
         }
+        public cPosicion BuscarNposLibre(int alfil, int[,] matriz_alfil)
+        {
+            cPosicion Pos = new cPosicion();
+            for (int i = 0; i < 8; i++)
+            {
+                for (int j = 0; j < 8; j++)
+                {
+                    if (tablero[i, j] == 0 && matriz_alfil[i, j] == alfil)
+                    {
+                        Pos.fila = i;
+                        Pos.columna = j;
+                        return Pos;
+                     
+                    }
+                }
+            }
+            return Pos;
+        }
+
     }
 }
