@@ -66,7 +66,9 @@ namespace TP2021_Mendiburu_GeonasStunf
         public void ImprimirTableros()
         {
             //nt l = 0;
-            //Tableros();
+            //TxtNum.Text( ToString(tab));
+
+           Tableros();
 
             for (int i = 0; i < partida.arrayPiezas.Length; i++)
             {
@@ -79,10 +81,9 @@ namespace TP2021_Mendiburu_GeonasStunf
                             aux.fila = partida.Tableros[tab, i].pos.fila;
                             aux.columna = partida.Tableros[tab, i].pos.columna;
 
-
-                            _chessBoardPanels[aux.fila, aux.columna].BackgroundImage = Image.FromFile("caballo1.png");
+                            _chessBoardPanels[aux.fila, aux.columna].BackgroundImage = Image.FromFile("caballo.png");
                             _chessBoardPanels[aux.fila, aux.columna].BackgroundImageLayout = ImageLayout.Stretch;
-                            //Controls.Add(_chessBoardPanels[aux.fila, aux.columna]);
+                            Controls.Add(_chessBoardPanels[aux.fila, aux.columna]);
 
                             break;
                         }
@@ -176,20 +177,100 @@ namespace TP2021_Mendiburu_GeonasStunf
 
                 }
             }
+            for (int i = 0; i < partida.arrayPiezas.Length; i++)
+            {
+                switch (partida.Tableros[tab, i].tipoPieza)
+                {
+                    case e_Pieza.CABALLO1:
+                    case e_Pieza.CABALLO2:
+                        {
+                            cPosicion aux = new cPosicion();
+                            aux.fila = partida.Tableros[tab, i].pos.fila;
+                            aux.columna = partida.Tableros[tab, i].pos.columna;
+
+                            Fatales[aux.fila, aux.columna].BackgroundImage = Image.FromFile("caballo.png");
+                            Fatales[aux.fila, aux.columna].BackgroundImageLayout = ImageLayout.Stretch;
+                           // Controls.Add(_chessBoardPanels[aux.fila, aux.columna]);
+
+                            break;
+                        }
+
+                    case e_Pieza.TORRE1:
+                    case e_Pieza.TORRE2:
+                        {
+                            cPosicion aux = new cPosicion();
+                            aux.fila = partida.Tableros[tab, i].pos.fila;
+                            aux.columna = partida.Tableros[tab, i].pos.columna;
+
+
+                            Fatales[aux.fila, aux.columna].BackgroundImage = Image.FromFile("torre2.png");
+                            Fatales[aux.fila, aux.columna].BackgroundImageLayout = ImageLayout.Stretch;
+                            //Controls.Add(_chessBoardPanels[aux.fila, aux.columna]);
+
+                            break;
+
+                        }
+
+                    case e_Pieza.ALFIL1:
+                    case e_Pieza.ALFIL2:
+                        {
+                            cPosicion aux = new cPosicion();
+                            aux.fila = partida.Tableros[tab, i].pos.fila;
+                            aux.columna = partida.Tableros[tab, i].pos.columna;
+                            Fatales[aux.fila, aux.columna].BackgroundImage = Image.FromFile("alfil2.png");
+                            Fatales[aux.fila, aux.columna].BackgroundImageLayout = ImageLayout.Stretch;
+                            //Controls.Add(_chessBoardPanels[aux.fila, aux.columna]);
+                            break;
+
+                        }
+                    case e_Pieza.REINA:
+                        {
+                            cPosicion aux = new cPosicion();
+                            aux.fila = partida.Tableros[tab, i].pos.fila;
+                            aux.columna = partida.Tableros[tab, i].pos.columna;
+                            Fatales[aux.fila, aux.columna].BackgroundImage = Image.FromFile("reina.png");
+                            Fatales[aux.fila, aux.columna].BackgroundImageLayout = ImageLayout.Stretch;
+                            //Controls.Add(_chessBoardPanels[aux.fila, aux.columna]);
+
+                            break;
+
+                        }
+                    case e_Pieza.REY:
+                        {
+                            cPosicion aux = new cPosicion();
+                            aux.fila = partida.Tableros[tab, i].pos.fila;
+                            aux.columna = partida.Tableros[tab, i].pos.columna;
+                            Fatales[aux.fila, aux.columna].BackgroundImage = Image.FromFile("rey.png");
+                            Fatales[aux.fila, aux.columna].BackgroundImageLayout = ImageLayout.Stretch;
+                            //Controls.Add(_chessBoardPanels[aux.fila, aux.columna]);
+
+                            break;
+
+                        }
+                    default:
+                        break;
+                }
+
+            }
+
         }
 
 
         private void BttnSiguiente_Click(object sender, EventArgs e)
         {
+            tab++;
             if (tab < partida.cant_tableros_a_generar)
             {
-                //ImprimirTableros();
-                tab++;
+                
+                Eliminar();
+                ImprimirTableros();
+                rdbttnAmenazasfatales.Checked = false;
 
-                this.Show();
+                
             }
             else
             {
+               
                 form1.Show();
                 this.Close();
             }
@@ -200,13 +281,38 @@ namespace TP2021_Mendiburu_GeonasStunf
             if (0 < tab && tab < partida.cant_tableros_a_generar)
             {
                 tab--;
+                Eliminar();
                 ImprimirTableros();
+                rdbttnAmenazasfatales.Checked = false;
+
             }
             else
             {
-                form1.Show();
-                this.Close();
+                DialogResult Mensaje = MessageBox.Show("NO HAY TABLEROS ANTERIORES", "Para salir presione finalizar");
+                //form1.Show();
+                //this.Close();
             }
+        }
+        private void Eliminar()
+        {
+            for (int i = 0; i < gridSize; i++)
+            {
+                for (int j = 0; j < gridSize; j++)
+                {
+                    Controls.Remove(_chessBoardPanels[i, j]);
+                    if(rdbttnAmenazasfatales.Checked==true)
+                    {
+                        Controls.Remove(Fatales[i, j]);
+                    }
+                }
+            }
+            rdbttnAmenazasfatales.Checked = false;
+        }
+
+        private void bttnFinalizar_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            form1.Show();
         }
     }
 }

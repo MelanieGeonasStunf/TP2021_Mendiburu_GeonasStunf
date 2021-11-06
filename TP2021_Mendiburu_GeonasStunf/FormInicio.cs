@@ -59,5 +59,10 @@ namespace TP2021_Mendiburu_GeonasStunf
             }
             return piezas;
         }
+
+        private void btnSalir_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

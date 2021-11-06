@@ -107,10 +107,11 @@ namespace TP2021_Mendiburu_GeonasStunf
 
                         Console.WriteLine("\nAtques fatales:" + cant_tab_generados);
                         casillas_amenazadas.ataquesLevesyFatales(matrizFatales[cant_tab_generados-1], pos_piezas, arrayPiezas);
-                        //matrizFatales.ImprimirTablero();
-                        
+                        matrizFatales[cant_tab_generados - 1].ImprimirTablero();
+
+
                     }
-                  
+
                 }
                 else
                 {
@@ -160,9 +161,10 @@ namespace TP2021_Mendiburu_GeonasStunf
 
                             Console.WriteLine("\nAtques fatales:" + cant_tab_generados);
                             casillas_amenazadas.ataquesLevesyFatales(matrizFatales[cant_tab_generados-1], pos_piezas, arrayPiezas);
-                           // matrizFatales.ImprimirTablero();
+                            matrizFatales[cant_tab_generados - 1].ImprimirTablero();
+
                         }
-                     
+
                     }
                     else
                     {
@@ -206,7 +208,7 @@ namespace TP2021_Mendiburu_GeonasStunf
 
                                     Console.WriteLine("\nAtques fatales:" + cant_tab_generados);
                                     casillas_amenazadas.ataquesLevesyFatales(matrizFatales[cant_tab_generados-1], pos_piezas, arrayPiezas);
-                                    //matrizFatales.ImprimirTablero();
+                                    matrizFatales[cant_tab_generados-1].ImprimirTablero();
                                     break;
                                 }
                                 else
