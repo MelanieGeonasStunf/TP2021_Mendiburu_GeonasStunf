@@ -252,15 +252,43 @@ namespace TP2021_Mendiburu_GeonasStunf
                                 }
                             case 6:
                                 {
-                                    if (matriz_alfil[pos.fila, pos.columna] == 2)
+                                    if (matriz_alfil[pos.fila, pos.columna] == 1)
                                         return pos;
-                                    break;
+                                    else
+                                    {
+                                        int alfil6 = 1;
+                                        tablero[i, j] = 1;
+                                        cPosicion aux = new cPosicion();
+
+                                        aux = BuscarNposLibre(alfil6, matriz_alfil);
+
+                                        pos.fila = aux.fila;
+                                        pos.columna = aux.columna;
+
+                                        tablero[i, j] = 0;
+                                        return pos;
+                                    }                                   
+                                   // break;
                                 }
                             case 7:
                                 {
-                                    if (matriz_alfil[pos.fila, pos.columna] == 1)
+                                    if (matriz_alfil[pos.fila, pos.columna] == 2)
                                         return pos;
-                                    break;
+                                    else
+                                    {
+                                        int alfil7 = 2;
+                                        tablero[i, j] = 1;
+
+                                        cPosicion aux = new cPosicion();
+                                        aux = BuscarNposLibre(alfil7, matriz_alfil);
+
+                                        pos.fila = aux.fila;
+                                        pos.columna = aux.columna;
+
+                                        tablero[i, j] = 0;
+                                        return pos;
+                                    }
+                                    //break;
                                 }
                         }
                     }
@@ -268,17 +296,6 @@ namespace TP2021_Mendiburu_GeonasStunf
 
 
             }
-
-
-
-
-
-
-            // throw Exceptio
-            //si la posicion es -1 ¡Tengo tablero!
-            //return pos;
-            //throw new NullReferenceException("Error.");
-
             return pos;//seria -1, podemos tirar excepcion?
         }
         public void AmenazasMovimientoRey(int[,] Amz_x_Cas, int[,] pos_piezas, Pieza pieza, bool sumar)
@@ -662,6 +679,22 @@ namespace TP2021_Mendiburu_GeonasStunf
 
             }
             matriz_Fatales.tablero[pieza.pos.fila, pieza.pos.columna] = (int)pieza.tipoPieza;
+        }
+        public cPosicion BuscarNposLibre(int alfil, int[,] matriz_alfil)
+        {           
+            cPosicion Pos = new cPosicion();
+            for(int i=0; i<8 ;i++)
+            {
+                for(int j=0; j<8 ;j++)
+                {
+                    if(tablero[i,j]==0 && matriz_alfil[i,j]==alfil)
+                    {
+                        Pos.fila = i;
+                        Pos.columna = j;
+                    }
+                }
+            }
+            return Pos;
         }
     }
 }
