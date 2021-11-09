@@ -141,7 +141,7 @@ namespace TP2021_Mendiburu_GeonasStunf
             AmenazasMovimientoTorre(Amz_x_Cas, pos_piezas, pieza);
             Amz_x_Cas[pieza.pos.fila, pieza.pos.columna] += 1;
         }
-        public cPosicion BuscarPosicionLibre(int pieza, Pieza[] arrayPiezas, int[,] matriz_alfil, int r1,int r2, bool rey = false)
+        public cPosicion BuscarPosicionLibre(int pieza, Pieza[] arrayPiezas, int A6, int A7, int[,] matriz_alfil, int r1,int r2, bool rey = false)
         {
             //int cont = 0;
             cPosicion pos = new cPosicion();
@@ -178,11 +178,11 @@ namespace TP2021_Mendiburu_GeonasStunf
                                 }
                             case 6:
                                 {
-                                    if (matriz_alfil[pos.fila, pos.columna] == 1)
+                                    if (matriz_alfil[pos.fila, pos.columna] == A6)
                                         return pos;
                                     else
                                     {
-                                        if (matriz_alfil[pos.fila, pos.columna] == 2)
+                                        if (matriz_alfil[pos.fila, pos.columna] == A7)
                                         {
                                             pos.fila = -1;
                                             pos.columna = -1;
@@ -194,11 +194,11 @@ namespace TP2021_Mendiburu_GeonasStunf
                                 }
                             case 7:
                                 {
-                                    if (matriz_alfil[pos.fila, pos.columna] == 2)
+                                    if (matriz_alfil[pos.fila, pos.columna] == A7)
                                         return pos;                               
                                     else
                                     {
-                                        if (matriz_alfil[pos.fila, pos.columna] == 1)
+                                        if (matriz_alfil[pos.fila, pos.columna] == A6)
                                         {
                                             pos.fila = -1;
                                             pos.columna = -1;
@@ -554,8 +554,7 @@ namespace TP2021_Mendiburu_GeonasStunf
         {
             AmenazasFatalesAlfil(matriz_Fatales, pos_piezas, pieza);
             AmenazasFatalesTorre(matriz_Fatales, pos_piezas, pieza);
-            //pos_piezas.ImprimirTablero();
-            //matriz_Fatales.ImprimirTablero();
+            
         }
         public void AmenazasFatalesRey(cTablero matriz_Fatales, cTablero pos_piezas, Pieza pieza)
         {

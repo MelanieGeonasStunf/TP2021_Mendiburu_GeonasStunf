@@ -16,8 +16,10 @@ namespace TP2021_Mendiburu_GeonasStunf
         public Amenazas cant_amenazasxCasillas;
         public cTablero[] matrizFatales;
         public Pieza[,] Tableros;
+        int libertad_alfil6;
+        int libertad_alfil7;
         //int[,] cuartoTablero=new int[4,4];
-
+  
         public Pieza[] arrayPiezas;
         public void GenerarTableros()
         {
@@ -26,6 +28,9 @@ namespace TP2021_Mendiburu_GeonasStunf
 
             while (cant_tab_generados < cant_tableros_a_generar)//-> necesito completar n tableros
             {
+                libertad_alfil6 = 0;
+                libertad_alfil7 = 0;
+
                 pos_piezas.InicializarMatrizEn0();//nuevo tablero, nuevas matrices
                 casillas_amenazadas.InicializarMatrizEn0();
                 cant_amenazasxCasillas.InicializarMatrizEn0();
@@ -53,9 +58,13 @@ namespace TP2021_Mendiburu_GeonasStunf
                 casillas_amenazadas.AmenazasMovimientoTorre(cant_amenazasxCasillas.tablero, pos_piezas.tablero, arrayPiezas[3]);
 
                 //alfil 1
-                while (casillas_amenazadas.tablero[aux.fila, aux.columna] != 0 && matriz_alfil.tablero[aux.fila, aux.columna] != 1)//condicion para ver si se puede mover el alfil{
+                while (casillas_amenazadas.tablero[aux.fila, aux.columna] != 0)//condicion para ver si se puede mover el alfil{
                 {
                     aux.EleccionAlAzar();
+                    libertad_alfil6 = matriz_alfil.tablero[aux.fila, aux.columna];
+                    if (libertad_alfil6 == 1)
+                        libertad_alfil7 = 2;
+                    else libertad_alfil7 = 1;
                 }
                 pos_piezas.tablero[aux.fila, aux.columna] = 6;//alfil 1
                 arrayPiezas[4].pos.fila = (int)aux.fila;
@@ -64,7 +73,7 @@ namespace TP2021_Mendiburu_GeonasStunf
                 casillas_amenazadas.AmenazasMovimientoAlfil(cant_amenazasxCasillas.tablero, pos_piezas.tablero, arrayPiezas[4]);
 
                 //alfil 2
-                while (casillas_amenazadas.tablero[aux.fila, aux.columna] != 0 && matriz_alfil.tablero[aux.fila, aux.columna] != 2)//condicion para ver si se puede mover el alfil{
+                while (casillas_amenazadas.tablero[aux.fila, aux.columna] != 0 && matriz_alfil.tablero[aux.fila, aux.columna] != libertad_alfil7)//condicion para ver si se puede mover el alfil{
                 {
                     aux.EleccionAlAzar();
                 }
@@ -120,7 +129,7 @@ namespace TP2021_Mendiburu_GeonasStunf
                     //caballo1
                     int[] cuartoMin = tableroMinAmenazas();
                     cPosicion auxLibre = new cPosicion();
-                    auxLibre = cant_amenazasxCasillas.BuscarPosicionLibre((int)arrayPiezas[0].tipoPieza, arrayPiezas, matriz_alfil.tablero, cuartoMin[0], cuartoMin[1]);
+                    auxLibre = cant_amenazasxCasillas.BuscarPosicionLibre((int)arrayPiezas[0].tipoPieza, arrayPiezas,libertad_alfil6, libertad_alfil7, matriz_alfil.tablero, cuartoMin[0], cuartoMin[1]);
                     arrayPiezas[0].pos.fila = (int)auxLibre.fila;//pongo el caballo 1
                     arrayPiezas[0].pos.columna = (int)auxLibre.columna;//pongo el caballo 1
 
@@ -129,7 +138,7 @@ namespace TP2021_Mendiburu_GeonasStunf
 
                     //caballo2
                     cuartoMin = tableroMinAmenazas();
-                    auxLibre = cant_amenazasxCasillas.BuscarPosicionLibre((int)arrayPiezas[1].tipoPieza, arrayPiezas, matriz_alfil.tablero, cuartoMin[0], cuartoMin[1]);
+                    auxLibre = cant_amenazasxCasillas.BuscarPosicionLibre((int)arrayPiezas[1].tipoPieza, arrayPiezas, libertad_alfil6, libertad_alfil7, matriz_alfil.tablero, cuartoMin[0], cuartoMin[1]);
                     arrayPiezas[1].pos.fila = (int)auxLibre.fila;
                     arrayPiezas[1].pos.columna = (int)auxLibre.columna;
 
@@ -138,7 +147,7 @@ namespace TP2021_Mendiburu_GeonasStunf
 
                     //rey
                     cuartoMin = tableroMinAmenazas();
-                    auxLibre = cant_amenazasxCasillas.BuscarPosicionLibre((int)arrayPiezas[7].tipoPieza, arrayPiezas, matriz_alfil.tablero, cuartoMin[0], cuartoMin[1]);
+                    auxLibre = cant_amenazasxCasillas.BuscarPosicionLibre((int)arrayPiezas[7].tipoPieza, arrayPiezas, libertad_alfil6, libertad_alfil7, matriz_alfil.tablero, cuartoMin[0], cuartoMin[1]);
                     arrayPiezas[7].pos.fila = (int)auxLibre.fila;
                     arrayPiezas[7].pos.columna = (int)auxLibre.columna;
 
@@ -178,10 +187,10 @@ namespace TP2021_Mendiburu_GeonasStunf
                                 int max = casillas_amenazadas.tablero[cant_amenazasxCasillas.pos_max_amenazas.fila, cant_amenazasxCasillas.pos_max_amenazas.columna];//el valor de la pieza en el mas amenazas
                                 cPosicion aux2 = new cPosicion();
                                 cuartoMin = tableroMinAmenazas();                                
-                                aux2 = casillas_amenazadas.BuscarPosicionLibre(max, arrayPiezas, matriz_alfil.tablero, cuartoMin[0], cuartoMin[1]);//pongo la posicion de esa pieza en otro lugar libre, pongo la pieza en 0, marco el valor nuevo en el tablero y completo amenazas
+                                aux2 = casillas_amenazadas.BuscarPosicionLibre(max, arrayPiezas, libertad_alfil6, libertad_alfil7,matriz_alfil.tablero, cuartoMin[0], cuartoMin[1]);//pongo la posicion de esa pieza en otro lugar libre, pongo la pieza en 0, marco el valor nuevo en el tablero y completo amenazas
                             if (aux2.fila == -1 && aux2.columna == -1)
                             {
-                                aux2 = casillas_amenazadas.BuscarPosicionLibre(9, arrayPiezas, matriz_alfil.tablero, cuartoMin[0], cuartoMin[1]);//pongo la posicion de esa pieza en otro lugar libre, pongo la pieza en 0, marco el valor nuevo en el tablero y completo amenazas
+                                aux2 = casillas_amenazadas.BuscarPosicionLibre(9, arrayPiezas, libertad_alfil6, libertad_alfil7, matriz_alfil.tablero, cuartoMin[0], cuartoMin[1]);//pongo la posicion de esa pieza en otro lugar libre, pongo la pieza en 0, marco el valor nuevo en el tablero y completo amenazas
                                 arrayPiezas[7].pos.fila = (int)aux2.fila;//nunca tiene que ser -1
                                 arrayPiezas[7].pos.columna = (int)aux2.columna;//nunca tiene que ser -1
                                 pos_piezas.LiberarPieza(9);
@@ -340,8 +349,7 @@ namespace TP2021_Mendiburu_GeonasStunf
             }
 
 
-        }      
-        
+        }              
         public bool ChequearTablero()
         {
             bool optn = true;
