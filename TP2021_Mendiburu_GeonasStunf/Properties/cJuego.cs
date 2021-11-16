@@ -61,7 +61,7 @@ namespace TP2021_Mendiburu_GeonasStunf
                 while (casillas_amenazadas.tablero[aux.fila, aux.columna] != 0)//condicion para ver si se puede mover el alfil{
                 {
                     aux.EleccionAlAzar();
-                    libertad_alfil6 = matriz_alfil.tablero[aux.fila, aux.columna];
+                    libertad_alfil6 = (int) matriz_alfil.tablero[aux.fila, aux.columna];
                     if (libertad_alfil6 == 1)
                         libertad_alfil7 = 2;
                     else libertad_alfil7 = 1;
@@ -72,10 +72,18 @@ namespace TP2021_Mendiburu_GeonasStunf
 
                 casillas_amenazadas.AmenazasMovimientoAlfil(cant_amenazasxCasillas.tablero, pos_piezas.tablero, arrayPiezas[4]);
 
+                aux.EleccionAlAzar();
+                int cont_it = 0;
                 //alfil 2
-                while (casillas_amenazadas.tablero[aux.fila, aux.columna] != 0 && matriz_alfil.tablero[aux.fila, aux.columna] != libertad_alfil7)//condicion para ver si se puede mover el alfil{
+                while (casillas_amenazadas.tablero[aux.fila, aux.columna] != 0 || cont_it == 0)//condicion para ver si se puede mover el alfil{
                 {
+                    if(matriz_alfil.tablero[aux.fila, aux.columna] == libertad_alfil7)
+                    {
+                        cont_it = 1;
+                        break;
+                    }
                     aux.EleccionAlAzar();
+
                 }
                 pos_piezas.tablero[aux.fila, aux.columna] = 7;//alfil 2
                 arrayPiezas[5].pos.fila = (int)aux.fila;
@@ -267,12 +275,12 @@ namespace TP2021_Mendiburu_GeonasStunf
         }
         public void InicializarTableroAlfil()
         {
-            int cont = 0;
+            //int cont = 0;
             for (int i = 0; i < matriz_alfil.tablero.GetLength(0); i++)
             {
                 for (int j = 0; j < matriz_alfil.tablero.GetLength(1); j++)
                 {
-                    if (cont % 2 == 0 || cont == 0)
+                    if ((i+j) % 2 == 0 || (i+j) == 0)
                     {
                         matriz_alfil.tablero[i, j] = 1;
                     }
@@ -280,7 +288,7 @@ namespace TP2021_Mendiburu_GeonasStunf
                     {
                         matriz_alfil.tablero[i, j] = 2;
                     }
-                    cont++;
+                   // cont++;
                 }
             }
         }
@@ -365,9 +373,28 @@ namespace TP2021_Mendiburu_GeonasStunf
                 {
                     
                     if (arrayPiezas[i].pos.fila != (int)Tableros[j, i].pos.fila || arrayPiezas[i].pos.columna != (int)Tableros[j, i].pos.columna)//hago variar la fila (osea el tablero) 
-                    {
-                        contador[j]++;                    
-                       
+                    {                        
+                        if(i==0)//caso caballos
+                        {
+                            if (arrayPiezas[i].pos.fila != (int)Tableros[j, i+1].pos.fila)
+                            {
+                                contador[j]++;
+                            }
+                        }
+                        if (i == 2)//caso torres
+                        {
+                            if (arrayPiezas[i].pos.fila != (int)Tableros[j, i + 1].pos.fila)
+                            {
+                                contador[j]++;
+                            }
+                        }
+                        if (i == 4)//caso alfiles
+                        {
+                            if (arrayPiezas[i].pos.fila != (int)Tableros[j, i + 1].pos.fila)
+                            {
+                                contador[j]++;
+                            }
+                        }
                     }
 
                 }

@@ -32,6 +32,11 @@ namespace TP2021_Mendiburu_GeonasStunf
             if (int.TryParse(txtPedirCantTableros.Text, out _))
             {
                 int cant = int.Parse(txtPedirCantTableros.Text);
+                if(cant>30)
+                {
+                    DialogResult mensaje = MessageBox.Show("Ingrese una cantidad menor a 30", "CANTIDAD INACEPTABLE");
+
+                }
 
                 if (cant <= 0 )
                 {
